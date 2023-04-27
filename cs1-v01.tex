@@ -286,7 +286,7 @@ e lo stesso vale se invece dell'intensità si considera la pressione acustica, o
 
 \item A suoni più forti del valore di riferimento (cioè con ampiezza, pressione, intensità ecc. superiori a esso) corrispondono livelli in decibel positivi; a suoni più deboli del valore di riferimento corrispondono livelli in decibel negativi. Infatti nel primo caso il rapporto tra valore misurato e valore di riferimento sarà maggiore di 1, e quindi il suo logaritmo maggiore di 0; nel secondo caso il rapporto sarà maggiore di 0 e minore di 1, e quindi il suo logaritmo minore di 0.
 
-\item Il valore di riferimento non può essere il silenzio perfetto (corrispondente a un valore di intensità sonora, pressione sonora, ampiezza ecc. pari a 0), perché in questo caso metteremmo uno 0 sotto la linea di frazione la divisione per 0 ha risultato indefinito.
+\item Il valore di riferimento non può essere il silenzio perfetto (corrispondente a un valore di intensità sonora, pressione sonora, ampiezza ecc. pari a 0), perché in questo caso metteremmo uno 0 sotto la linea di frazione e la divisione per 0 ha risultato indefinito.
 
 \item In senso proprio, neppure il valore misurato può essere il silenzio perfetto, perché questo vorrebbe dire calcolare il logaritmo di 0 che pure non è definito. Con un leggero abuso di terminologia, si usa però spesso scrivere che il silenzio perfetto corrisponde a $-\infty$ dB. In senso proprio, il silenzio perfetto esiste solo nel contesto astratto delle rappresentazioni numeriche.
 
@@ -317,6 +317,59 @@ Tutti i suoni correttamente rappresentabili in un tale sistema avranno livelli n
 
 Esistono numerose altre scale di riferimento usate in elettroacustica e psicoacustica, ma non le approfondiremo qui.
 
+
+
+
+\section{Piccola aritmetica dei decibel}
+
+Succede spesso di dover convertire in decibel un rapporto di ampiezze, o viceversa. Questo può essere facilmente fatto con Max tramite gli oggetti \emph{atodb} e \emph{dbtoa}, ma è utile avere in mente almeno alcune identità semplici:
+
+\begin{itemize}
+
+\item Se un dato rapporto di ampiezza corrisponde a un guadagno pari a $L_{dB}$, allora l'inverso di tale rapporto corrisponderà a un guadagno pari a $-L_{dB}$: se
+
+\begin{equation}
+20 \cdot log_{10} \frac{A}{A_0} = L_{dB}
+\end{equation}
+allora
+\begin{equation}
+\begin{aligned}
+20 \cdot log_{10} \frac{A_0}{A} =\\
+20 \cdot log_{10} \frac{1}{\frac{A_0}{A}} =\\
+20 \cdot log_{10} (\frac{A}{A_0})^{-1} =\\
+-1 \cdot 20 \cdot log_{10} \frac{A}{A_0} =\\
+-1 \cdot L_{dB} =\\
+-L_{dB}
+\end{aligned}
+\end{equation}
+
+\item Raddoppiare l'ampiezza corrisponde a un guadagno di circa \qty{6}{dB}, dal momento che $log_{10} 2 \approx 0.301$ e quindi $20 \cdot log_{10} 2 \approx 6.02$. Poiché uno scarto di \qty{0.02}{dB} è nella maggior parte dei casi del tutto irrilevante, spesso si considera l'identità come esatta anziché approssimata.
+
+\item Dimezzare l'ampiezza corrisponde a un guadagno di circa \qty{-6}{dB}.
+
+\item Moltiplicare per 10 l'ampiezza corrisponde a un guadagno di esattamente \qty{20}{dB}, poiché $log_{10} 10 = 1$ e quindi $20 \cdot log_{10} 10 = 20$.
+
+\item Dividere per 10 l'ampiezza corrisponde a un guadagno di esattamente \qty{-20}{dB}.
+
+\end{itemize}
+
+Considerando che, in virtù della proprietà fondamentale dei logaritmi, moltiplicazioni dell'ampiezza corrispondono sempre a somme algebriche di decibel ed elevamenti a potenza dell'ampiezza corrispondono a moltiplicazioni di decibel, le identità riportate sopra possono essere utili per fare alcuni calcoli in maniera semplice. Per esempio:
+
+\begin{itemize}
+
+\item Un guadagno di 100, cioè $10 \cdot 10$, corrisponde a $20 + 20 = 40$ dB.
+
+\item Un guadagno di 20, cioè $2 \cdot 10$, corrisponde a circa $6 + 20 = 26$ dB.
+
+\item Un'attenuazione di 1000, cioè un guadagno di $\frac{1}{1000}$ o $10^{-3}$ corrisponde a $20 \cdot -3 = -60$ dB.
+
+\item \qty{8}{dB}, cioè $20 - 2 \cdot 6$ dB, corrispondono a un guadagno di circa $10 \cdot 2^{-2} = 10 \cdot \frac{1}{4} = 2.5$
+
+\item \qty{10}{dB}, cioè $20 \cdot \frac{1}{2}$ dB, corrispondono a un guadagno di $10^\frac{1}{2} = \sqrt{10} \approx {3.16}$
+
+\end{itemize}
+
+Queste operazioni corrispondono, tra l'altro, al collegamento in serie di amplificatori o attenuatori, come avviene normalmente nel percorso del segnale lungo una catena elettroacustica o all'interno di un mixer. Se per esempio lo stadio di guadagno di un mixer è regolato a \qty{40}{dB}, il fader del corrispondente canale a \qty{-10}{dB} e il livello di uscita a \qty{-20}{dB} (assumendo che non ci siano altre trasformazioni del segnale, come equalizzazioni o altro) sapremo che il segnale in uscita dal mixer sarà $40-10-20 = 10$ dB più forte rispetto a quello in entrata, e quindi che il voltaggio in uscita sarà circa pari al voltaggio in entrata moltiplicato per 3.16.
 
 
 
@@ -351,11 +404,11 @@ Esistono numerose altre scale di riferimento usate in elettroacustica e psicoacu
 
 \section{Frequenza e sue unità di misura}
 
-La nostra rappresentazione cognitiva del suono non avviene nei termini di rapide oscillazioni di pressione dell'aria, ma piuttosto in termini di successioni ed evoluzioni nel tempo di altezze e timbri. Per fare ciò, individuiamo nell'andamento della pressione sonora strutture anche grossolanamente regolari nel tempo e le analizziamo dal punto di vista frequenziale: cioè, in sostanza, valutiamo quante volte tali strutture si ripetono, anche in maniera estremamente approssimativa, in una data unità temporale. Da tale valutazione siamo in grado di trarre informazioni sulle qualità e sull'attività dell'emittente: distinguiamo emittenti diversi --- una zanzara, un leone, un violino, un trombone --- e sul loro comportamento. A complemento di ciò, siamo dotati di un apparato fonatorio in grado di emettere vibrazioni regolari di pressione acustica in maniera estremamente controllata: dalla relazione tra emissione e percezione di tali vibrazioni nasce la parola; la musica, la sua origine, il suo ruolo evolutivo sono fatti più misteriosi e sfuggenti, ma sono basati almeno parzialmente sugli stessi meccanismi.
+La nostra rappresentazione cognitiva del suono non avviene nei termini di rapide oscillazioni di pressione dell'aria, ma piuttosto in termini di successioni ed evoluzioni nel tempo di altezze e timbri. Per fare ciò, individuiamo nell'andamento della pressione sonora strutture anche grossolanamente regolari nel tempo e le analizziamo dal punto di vista frequenziale: cioè, in sostanza, valutiamo quante volte tali strutture si ripetono, anche in maniera estremamente approssimativa, in una data unità temporale. Da tale valutazione siamo in grado di trarre informazioni sulle qualità e sull'attività dell'emittente. A complemento di ciò, siamo dotati di un apparato fonatorio in grado di emettere vibrazioni regolari di pressione acustica in maniera estremamente controllata: dalla relazione tra emissione e percezione di tali vibrazioni nasce la parola; la musica, la sua origine, il suo ruolo evolutivo sono fatti più misteriosi e sfuggenti, ma sono basati almeno parzialmente sugli stessi meccanismi.
 
 Introduciamo quindi il concetto di frequenza e la sua misurazione: dato un fenomeno che varia in maniera regolare, possiamo individuare il suo periodo, cioè l'intervallo temporale che intercorre tra due sue ripetizioni. Chiamiamo questo periodo $\Delta t$ e lo misuriamo tramite unità di misura di tempo: millisecondi, secondi, minuti, ore, giorni...
 
-La frequenza indica quante volte la variazione regolare avviene in una data unità di tempo: per esempio, quanti periodi ci sono in un secondo, in un minuto, in un'ora. Possiamo quindi definirlo come l'inverso del periodo:
+La frequenza indica quante volte la variazione regolare avviene in una data unità di tempo: per esempio, quanti periodi ci sono in un secondo, in un minuto, in un'ora. Possiamo quindi definirla come l'inverso del periodo:
 \begin{equation}
 f = \frac{1}{\Delta t} = {\Delta t}^{-1}
 \end{equation}
@@ -388,7 +441,9 @@ f_{BPM} = 60\frac{1}{\Delta t_{s}} = \frac{60}{\Delta t_{s}}
 
 Esistono funzioni matematiche dette periodiche, che ripetono all'infinito un comportamento sempre uguale e che ci riguardano molto da vicino, visto che sono quelle per le quali ha senso definire una frequenza.
 
-Le funzioni periodiche sono molte --- un'infinità, letteralmente --- ma ce ne sono due che hanno un insieme di proprietà fondamentali tali da rappresentare, in un certo senso, il mattone elementare a partire dal quale costruiremo tutto il nostro discorso sul suono. Queste funzioni sono il \emph{seno} e il \emph{coseno}, che rappresentano rispettivamente la proiezione sull'asse verticale e orizzontale di un punto della circonferenza goniometrica: se prendo un raggio della circonferenza che forma un angolo $\alpha$ con l'asse orizzontale, il seno di $\alpha$ è la proiezione sull'asse verticale del punto in cui questo raggio tocca la circonferenza; e il coseno di $\alpha$ è la proiezione dello stesso punto sull'asse orizzontale.
+Le funzioni periodiche sono molte --- un'infinità, letteralmente --- ma ce ne sono due che hanno alcune proprietà in virtù delle quali esse costituiscono il mattone elementare a partire dal quale costruiremo gran parte del nostro discorso sul suono. Queste funzioni sono il \emph{seno} e il \emph{coseno}, che rappresentano rispettivamente la proiezione sull'asse verticale e orizzontale di un punto della circonferenza goniometrica:%
+\footnote{La circonferenza goniometrica (\emph{unit circle} in inglese) è una circonferenza tracciata nel piano cartesiano, con centro corrispondente all'origine degli assi e raggio pari a 1.}
+se prendo un raggio della circonferenza che forma un angolo $\alpha$ in senso antiorario rispetto all'asse delle ascisse, il seno di $\alpha$ è la proiezione sull'asse verticale del punto in cui questo raggio tocca la circonferenza; e il coseno di $\alpha$ è la proiezione dello stesso punto sull'asse orizzontale.
 
 Vediamo ora alcuni fatti fondamentali relativi a seno e coseno.
 
@@ -400,7 +455,7 @@ c = 2 \pi r
 \end{equation}
 e quindi l'angolo in radianti corrispondente a 360° sarà
 \begin{equation}
-360° = \frac{2 \pi r}{r} = 2 \pi
+360^{\circ} = \frac{2 \pi r}{r} = 2 \pi
 \end{equation}
 
 Altri misure di angoli che incontreremo spesso sono
@@ -440,7 +495,9 @@ Di conseguenza, l'ampiezza picco-picco delle funzioni seno e coseno è 2.
 
 \subsection{Dominio e periodicità}
 
-Il dominio del seno e del coseno è infinito. D'altra parte, come dicevamo, seno e coseno sono funzioni periodiche, che si ripetono uguali a sé stesse a ogni giro di circonferenza, cioè ogni $2 \pi$ radianti. Quindi
+Il dominio del seno e del coseno è infinito: angoli più grandi di un giro (cioè di $2\pi$) sono possibili e ben definiti, e i punti che questi definiscono sulla circonferenza corrispondono a punti definiti da angoli più piccoli del giro. Possiamo dire che, continuando a far ruotare il raggio dopo che ha compiuto un giro, questo continua a ripercorrere sempre lo stesso percorso. Possiamo estendere il ragionamento ad angoli negativi, che possono essere visti come angoli calcolati facendo ruotare il raggio in senso orario anziché antiorario.
+
+Questa considerazione in definitiva spiega perché seno e coseno sono funzioni periodiche, che si ripetono uguali a sé stesse a ogni giro di circonferenza, cioè ogni $2 \pi$ radianti. Quindi
 \begin{equation}
 \forall n \in \mathbb{Z}, \sin(x + 2 \pi n) = \sin x
 \end{equation}
@@ -457,11 +514,11 @@ Per questa ragione, di solito si preferisce utilizzare come argomenti del seno e
 
 \section{Sinusoidi}
 
-Si può generalizzare la nozione di seno e coseno in quella più astratta di sinusoide. Una sinusoide è una qualsiasi funzione che abbia l'andamento di un seno e coseno, ma che abbia un periodo potenzialmente diverso da $2 \pi$; che sia potenzialmente traslata lungo l'asse orizzontale; e la cui ampiezza picco-picco sia potenzialmente diversa da 2, fermo restando che il codominio dev'essere simmetrico rispetto allo 0.
+Si può generalizzare la nozione di seno e coseno in quella più astratta di sinusoide. Una sinusoide è una qualsiasi funzione che abbia l'andamento di un seno o di un coseno, ma che abbia un periodo potenzialmente diverso da $2 \pi$; che sia potenzialmente traslata lungo l'asse orizzontale; e la cui ampiezza picco-picco sia potenzialmente diversa da 2, fermo restando che il codominio dev'essere simmetrico rispetto allo 0.
 
 \subsection{Frequenza}
 
-Il termine della frequenza controlla la periodicità della funzione. Ad esempio, possiamo definire una funzione sinusoidale con frequenza 1 (cioè, per cui $s(x) = s(x+1)$ per qualsiasi $x$) come
+Il termine della frequenza controlla la periodicità della funzione. Ad esempio, possiamo definire una funzione sinusoidale con frequenza 1 (cioè che si ripete esattamente una volta per ogni incremento unitario sull'asse $x$) come
 \begin{equation}
 s(x) = \sin(2 \pi x)
 \end{equation}
@@ -473,7 +530,7 @@ s(x) = \sin({2 \pi} f x)
 
 Poiché, nel caso specifico del discorso sul suono, $x$ rappresenta generalmente il tempo, spesso scriviamo
 \begin{equation}
-s(x) = \sin({2 \pi} f t)
+s(t) = \sin({2 \pi} f t)
 \end{equation}
 
 Alcuni testi, come il Puckette, preferiscono parlare di velocità angolare anziché di frequenza, introducendo un termine
@@ -485,7 +542,7 @@ per cui
 f = \frac{\omega}{2 \pi}
 \end{equation}
 
-$\omega$ rappresenta non il periodo, cioè i giri per unità di tempo, ma i radianti per unità di tempo. Questo rende più semplice ma meno tangibile l'equazione della sinusoide, che diventa
+$\omega$ rappresenta non il periodo, cioè i cicli per unità di tempo, ma i radianti per unità di tempo. Questo rende più semplice ma meno tangibile l'equazione della sinusoide, che diventa
 \begin{equation}
 s(t) = \sin(\omega t)
 \end{equation}
@@ -531,6 +588,28 @@ k \cdot \sin(2 \pi f t + \phi) = k_1 \cdot \sin(2 \pi f t) + k_2 \cdot \cos(2 \p
 \end{equation}
 
 Se vuoi approfondire queste due formule, ti consiglio di guardare qui: \url{https://www.dsprelated.com/showarticle/635.php}.
+
+
+
+\section{Frequenza fondamentale, spettro di frequenza, rappresentazione nel dominio della frequenza}
+
+Dire che la frequenza di un segnale è l'inverso delle sue ripetizioni più o meno esatte è sicuramente corretto dal punto di vista teorico ma è solo un primo passo verso la comprensione del fenomeno sonoro e della maniera in cui lo percepiamo. Abbiamo alcuni scenari diversi da considerare:
+
+\begin{enumerate}
+
+\item Un corpo vibrante produce un'onda sonora periodica di forma approssimativamente sinusoidale%
+\footnote{Neanche il più preciso oscillatore elettronico collegato al più fedele impianto di amplificazione e diffusione produrrà comunque un segnale acustico perfettamente corrispondente a una sinusoide esatta. Possiamo allora dire che la sinusoide è un modello astratto che approssima in maniera conveniente e matematicamente semplice una moltitudine di fenomeni sonori del mondo reale.}
+
+\item Un corpo vibrante produce un'onda sonora periodica di forma molto diversa da una sinusoide
+
+\item Un corpo vibrante produce un'onda sonora che non esibisce periodicità
+
+\item Più corpi vibranti indipendenti producono simultaneamente, nella stessa scena uditiva, onde sonore appartenenti a una o più delle categorie indicate sopra
+
+\end{enumerate}
+
+Ciascuno di questi scenari --- terzo e quarto compresi --- può essere descritto in termini di frequenze e di sinusoidi. Per poterlo fare sono però necessarie alcune premesse.
+
 
 
 
