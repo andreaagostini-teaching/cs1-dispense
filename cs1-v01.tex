@@ -434,7 +434,9 @@ e
 f_{BPM} = 60\frac{1}{\Delta t_{s}} = \frac{60}{\Delta t_{s}}
 \end{equation}
 
+Tutto quanto detto fin qui riguarda in senso stretto la \emph{frequenza fondamentale} di un segnale, che è appunto l'inverso della durata di una delle sue ripetizioni nell'unità di tempo.
 
+Sappiamo però che qualsiasi segnale può essere scomposto in una somma potenzialmente infinita di segnali sinusoidali. Prima di tutto allora abbiamo bisogno di una definizione di sinusoide.
 
 
 \section{Seni e coseni}
@@ -591,9 +593,60 @@ Se vuoi approfondire queste due formule, ti consiglio di guardare qui: \url{http
 
 
 
+
+\section{Spettro di frequenza}
+
+
+Il \emph{teorema di Fourier} ci dice che qualsiasi segnale può essere rappresentato come una somma di componenti sinusoidali. Questo vuol dire, in senso proprio, che sommando algebricamente tra loro sinusoidi (potenzialmente in numero infinito) con specifiche frequenze, ampiezze e fasi è possibile ottenere qualsiasi segnale, di qualsiasi complessità. 
+
+Ci sono alcune ricadute importanti di questa affermazione. In primo luogo, il teorema di Fourier non parla della durata delle sinusoidi: l'espressione matematica di una sinusoide assume che questa sia infinita nel tempo, dal momento che il suo dominio corrisponde all'intero insieme dei numeri reali. In secondo luogo, lo stesso teorema non dice che il segnale debba avere caratteristiche di staticità o periodicità nel tempo: qualsiasi fenomeno, in tutta la sua evoluzione temporale può essere rappresentato in termini di somma di sinusoidi definite in termini di frequenza, ampiezza e fase. In generale, però, è possibile che questa rappresentazione richieda di considerare sinusoidi a frequenza estremamente bassa.
+
+Esiste poi un caso particolare del teorema di Fourier, che si applica a segnali periodici: questi possono essere rappresentati da una somma di sinusoidi le cui frequenze sono tutte multipli interi della frequenza fondamentale del segnale. L'ampiezza e la fase di ciascuna sinusoide determinano la forma d'onda del segnale originale. Tutte queste sinusoidi sono dette \emph{armoniche} del segnale, e diremo che le loro frequenze si trovano in rapporto armonico tra loro.
+
+È vero anche il contrario: qualsiasi somma di sinusoidi le cui frequenze siano tutte multiple di una frequenza data (cioè siano tutte in rapporto armonico tra loro) produrrà un segnale periodico, che avrà quest'ultima frequenza come fondamentale.
+
+Convenzionalmente, a ciascuna armonica viene associato un indice che corrisponde al rapporto tra la sua frequenza e quella della fondamentale --- cioè, all'intero che, moltiplicando la frequenza della fondamentale, produce la frequenza dell'armonica. Quindi la seconda armonica avrà frequenza doppia rispetto alla fondamentale; la terza armonica frequenza tripla; e così via. Secondo questa convenzione, la prima armonica coinciderà con la fondamentale.
+
+Esiste un'altra convenzione adottata soprattutto da testi più vecchi per cui l'armonica di frequenza doppia rispetto alla fondamentale è chiamata prima armonica; quella di frequenza tripla è chiamata seconda armonica; e così via. Da questa convenzione deriva quella, di uso frequente, per cui la fondamentale viene chiamata $f_0$, anche in contesti in cui viene considerata la prima armonica.
+
+La rappresentazione di un segnale in termini delle sinusoidi che lo compongono è detta \emph{nel dominio della frequenza}, e si contrappone alla rappresentazione \emph{nel dominio del tempo} che è quella per cui il segnale è rappresentato in termini delle variazioni di ampiezza nel tempo. In senso stretto, ogni segnale, qualunque sia la durata, può essere descritto in termini di una somma di infinite sinusoidi. L'operazione attraverso la quale si ottiene la rappresentazione nel dominio della frequenza a partire da quella del dominio del tempo è la \emph{trasformata di Fourier} (\emph{Fourier transform}, o \emph{FT}). Questo termine indica anche il risultato dell'operazione, per cui possiamo dire che la rappresentazione nel dominio della frequenza è la trasformata di Fourier della rappresentazione nel dominio del tempo. La trasformata di Fourier è un'operazione invertibile: dalla rappresentazione nel dominio della frequenza possiamo ottenere quella nel dominio del tempo applicando alla prima la \emph{trasformata inversa di Fourier}. In senso proprio, la trasformata di Fourier si svolge su una rappresentazione analitica del segnale: cioè, è un'operazione che prende un'equazione che descrive il segnale come una funzione del tempo su dominio infinito e restituisce un'altra equazione che descrive il segnale come una funzione della frequenza su dominio infinito.
+
+La nostra percezione del suono è basata su una rappresentazione ibrida: da una parte abbiamo una capacità di distinguere timbri diversi indicando le loro caratteristiche spettrali (più scuro, più brillante, più nasale; o anche, per chi è allenato a distinguere e nominare questi dettagli, più ricco di armoniche pari, o dispari, o di alcune armoniche specifiche). Siamo anche in grado di distinguere frequenze e timbri diversi prodotti simultaneamente da corpi diversi (più note suonate simultaneamente da un pianoforte o una chitarra, più voci che parlano o cantano simultaneamente, la compresenza di suoni di origine differente). Alla base di questo tipo di percezione c'è una rappresentazione cognitiva del suono nel dominio della frequenza: il nostro orecchio interno contiene cellule acustiche sensibili a frequenze diverse, e queste cellule compiono un'operazione concettualmente simile a una trasformata di Fourier, salvo il fatto che l'ambito frequenziale a cui esse sono sensibili è limitato a una banda passante compresa approssimativamente (e ottimisticamente) tra i 20 Hz e i 20 kHz.
+
+D'altra parte, la nostra percezione del suono avviene anche in termini di eventi che si susseguono nel tempo --- fonemi, note, articolazioni interne del suono. Questo avviene in particolare per eventi la cui frequenza di produzione è più bassa di 20 Hz.  Intuitivamente, la dimensione temporale del suono ci appare perfettamente contrapposta rispetto a quella frequenziale e indipendente da essa (potremmo dire \emph{ortogonale}). Una partitura tradizionale ci offre una rappresentazione simbolica di questo paradigma di cognizione del suono: sull'asse orizzontale il tempo, su quello verticale la frequenza --- o, nel caso di più suoni simultanei, le frequenze. Non deve però mai sfuggirci il fatto fondamentale per cui queste due dimensioni contrapposte, il tempo e la frequenza, sono in realtà due maniere quantitativamente diverse di percepire un solo fenomeno, che è la variazione della pressione dell'aria nel tempo.
+
+Possiamo allora dire che la nostra percezione avviene secondo una rappresentazione frequenziale \emph{a breve termine}: nel breve periodo, cioè per frequenze relativamente alte, si comporta come una rappresentazione nel dominio della frequenza; nel lungo periodo, cioè per frequenze relativamente basse, si comporta come una rappresentazione nel dominio del tempo.
+
+Esiste uno strumento matematico, la \emph{trasformata a breve termine di Fourier} (\emph{short-term Fourier transform} o \emph{STFT}), che restituisce una scomposizione sinusoidale di un segnale limitato nel tempo (e, di conseguenza, anche nella frequenza). Non entriamo ora nei suoi dettagli: possiamo dire che, anche se dal punto di vista matematico il suo risultato è \emph{esatto}, questo in generale non coincide esattamente con la nostra percezione cognitiva del suono, che avviene secondo meccanismi molto più complessi della STFT. Tuttavia, spesso ne fornisce un'approssimazione utile alla descrizione del fenomeno sonoro, e di fatto i vari analizzatori spettrali che utilizziamo sono basati il più delle volte su questo strumento matematico.%
+\emph{In informatica musicale si parla spesso di \emph{fast Fourier transform}, o \emph{FFT}, che è un algoritmo per il calcolo della STFT.}
+
+
+
+
+
+Esiste una variante della trasformata di Fourier che si applica a segnali descritti numericamente tramite un'operazione di campionamento come quella che applichiamo ai segnali quando li rappresentiamo informaticamente. 
+
+
+
+
+
+
+
+
+
+
 \section{Frequenza fondamentale, spettro di frequenza, rappresentazione nel dominio della frequenza}
 
-Dire che la frequenza di un segnale è l'inverso delle sue ripetizioni più o meno esatte è sicuramente corretto dal punto di vista teorico ma è solo un primo passo verso la comprensione del fenomeno sonoro e della maniera in cui lo percepiamo. Abbiamo alcuni scenari diversi da considerare:
+
+
+
+
+
+
+
+
+
+Dire che la frequenza di un segnale è l'inverso del periodo delle sue ripetizioni più o meno esatte è sicuramente corretto dal punto di vista teorico ma è solo un primo passo verso la comprensione del fenomeno sonoro e della maniera in cui lo percepiamo. Abbiamo alcuni scenari diversi da considerare:
 
 \begin{enumerate}
 
