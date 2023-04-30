@@ -1,0 +1,8 @@
+
+\chapter{Digitalizzazione di un segnale audio}
+
+Per poter elaborare un suono tramite strumenti informatici abbiamo prima di tutto bisogno di individuare una sua rappresentazione digitale, cioè numerica.
+
+Esistono molte rappresentazioni possibili e usate nella pratica, ma ce n'è una che possiamo considerare alla base di tutte le altre, e che tra l'altro è quella che viene direttamente prodotta dai convertitori da analogico a digitale (\emph{digital to analog converter} o \emph{DAC}) e accettata dai convertitori da digitale ad analogico (\emph{analog to digital converter} o \emph{ADC}). Si tratta della codifica PCM (\emph{pulse code modulation}, nome adottato più che altro per ragioni storiche, ma non molto rappresentativo dell'effettiva operazione svolta).
+
+Nel caso pratico più semplice di catena audio digitale, il segnale acustico viene in primo luogo convertito in un segnale elettroacustico tramite un microfono o un trasduttore di altro tipo; viene poi preamplificato in maniera da portarlo a un livello di tensione elettrica compatibile con quello accettato dal convertitore ADC; il convertitore produce un flusso di numeri, normalmente rappresentati sotto forma di un segnale digitale elettrico o, talvolta, ottico; questo flusso di numeri viene trasmesso a un convertitore DAC, che lo converte in un segnale elettrico teoricamente identico a quello originale; e questo segnale elettrico viene poi amplificato perché possa guidare un trasduttore come un altoparlante.

@@ -1,0 +1,395 @@
+
+\chapter{Pressione, ampiezza, intensità}
+
+\section{Pressione sonora}
+
+Il suono è costituito da (o associato a) onde di pressione longitudinali che si propagano in un mezzo elastico (tipicamente l'aria).
+
+L'onda longitudinale è tale perché lo spostamento di energia avviene lungo lo stesso asse dello spostamento di materia (come per esempio nel caso di una molla che viene colpita a un'estremità). Il caso opposto, che non riguarda il suono, è l'onda trasversale, in cui lo spostamento di energia avviene perpendicolarmente rispetto all'asse dello spostamento di materia: l'esempio classico è l'onda del mare, in cui l'energia si sposta orizzontalmente (dal mare aperto verso la riva) mentre la materia si sposta verticalmente (la singola molecola d'acqua si alza e si abbassa a causa del moto ondoso).
+
+Il suono sarà in generale prodotto da un corpo emittente, che per semplicità immaginiamo puntiforme. Nel nostro modello, consideriamo anche la presenza di un recettore, pure puntiforme. Il corpo emittente oscilla in maniera più o meno regolare attorno a un suo punto di riposo. Così facendo, crea nell'aria un'alternanza di compressioni nella direzione del recettore e compressioni nella direzione opposta a quella del recettore (che possiamo considerare decompressioni nella direzione del recettore). Questi fronti di compressioni e decompressioni si propagano in forma di superfici sferiche. 
+
+La pressione si misura in pascal (\unit{Pa}) e i suoi multipli e sottomultipli, come 
+\begin{itemize}
+\item il millipascal (\unit{mPa}: $\frac{1}{1000}$\unit{Pa}), 
+\item il micropascal (\unit{\micro\pascal}: $\frac{1}{1000000}$\unit{Pa}), 
+\item il kilopascal (\unit{\kilo\pascal}: \qty{1000}{Pa}),
+\item il \unit{bar} (\unit{bar}: \qty{100000}{Pa}).
+\end{itemize}
+
+La pressione atmosferica standard al livello del mare è poco più di \qty{100000}{Pa}. Il fenomeno sonoro provoca piccole variazioni nella pressione atmosferica: le variazioni tipiche dei suoni udibili avvengono in un ambito compreso all'incirca tra \qty{20}{\micro\pascal} e \qty{20}{\pascal}. 
+
+Il recettore del fenomeno sonoro (ad esempio la membrana del timpano, o una membrana microfonica) è immerso nell'atmosfera, che esercita eguale pressione da entrambi i lati: di conseguenza, possiamo considerare in generale nulla la pressione atmosferica complessiva a cui la membrana è sottoposta.%
+\footnote{Questo non è vero ad esempio nel caso di sbalzi d'altitudine o di immersioni subacquee: in questi casi infatti bisogna compensare le variazioni di pressione a cui il timpano è sottoposto.}
+Il fenomeno sonoro provoca invece l'applicazione di una pressione direzionata sul recettore, che ne sarà compresso verso l'interno o verso l'esterno: ha senso quindi dire che il recettore è sottoposto a una pressione sonora dell'ambito descritto sopra (tra \qty{20}{\micro\pascal} e \qty{20}{\pascal}). Per convenzione, parleremo di pressione positiva quando la pressione esterna è superiore alla pressione interna (e quindi la membrana del timpano sarà spinta verso l'interno del cranio); di pressione negativa nel caso opposto (in cui la membrana del timpano è ``risucchiata'' verso l'esterno del cranio).
+
+L'onda sonora impiega tempo a propagarsi: al livello del mare, con aria secca e temperatura di \qty{20}{\celsius}, la velocità di propagazione è di circa \qty{343}{m / s}. Questo vuol dire che, approssimativamente, il suono in queste condizioni percorre \qty{30}{cm} in \qty{1}{ms}; \qty{1}{m} in \qty{3}{ms}; e \qty{1}{km} in \qty{3}{s}.
+
+
+
+\section{Ampiezza e rappresentazione nel dominio del tempo}
+
+Ci interessa individuare alcune grandezze che variano in maniera idealmente proporzionale%
+\footnote{Nel mondo reale, questa proporzionalità è sempre approssimativa. Rispetto alle definizioni della fisica classica, e in un contesto ideale in cui non esistono fenomeni parassiti che disturbano l'emissione, la trasmissione e la ricezione del suono (come ad esempio rumori d'ambiente, correnti d'aria, superfici riflettenti, l'elasticità non perfetta dei materiali e così via), è spesso utile considerarla esatta per semplicità.}
+tra loro, per lo stesso fenomeno sonoro:
+
+\begin{itemize}
+\item lo spostamento dell'emittente $s_e$
+\item lo spostamento del recettore $s_r$ (se il mezzo elastico non induce distorsioni: in generale possiamo considerare che le distorsioni indotte dall'aria siano estremamente ridotte)
+\item le variazioni di pressione atmosferica $\Delta p$ (in assenza di altri fenomeni perturbativi)
+\item la tensione elettrica nella catena elettroacustica $V$ (assumendo che trasduttori, conduttori e amplificatori si comportino in maniera ideale)
+\end{itemize}
+
+Possiamo allora scrivere che
+\begin{equation}
+s_e \propto s_r \propto \Delta p \propto V
+\end{equation}
+dove il simbolo $\propto$ indica una relazione di proporzionalità diretta.
+
+Poiché la percezione e il trattamento del fenomeno sonoro avvengono in generale in termini astratti rispetto alla materialità delle grandezze fisiche coinvolte, spesso utilizziamo il concetto di \emph{ampiezza} del segnale sonoro. L'ampiezza è una misura adimensionale proporzionale alle grandezze elencate sopra; le rappresenta tutte, e non coincide con nessuna in particolare. Il suo ambito è arbitrario e convenzionale; in condizioni normali, si adotta talvolta un ambito compreso tra -1 e 1, ma ci sono moltissime eccezioni. Il concetto di ampiezza è cruciale nella rappresentazione digitale del suono. Quindi
+\begin{equation}
+A \propto s_e \propto s_r \propto \Delta p \propto V
+\end{equation}
+
+Se si traccia l'andamento di una qualsiasi di queste grandezze rispetto al tempo si ottiene un grafico che rappresenta il fenomeno sonoro \emph{nel dominio del tempo}. Il fatto che si tratti di grandezze tutte proporzionali tra loro fa sì che, cambiando l'unità di misura sull'asse verticale, il grafico mantenga la stessa forma. Possiamo quindi parlare di \emph{forma d'onda} (in inglese \emph{waveform}). Questo tipo di grafico è talvolta chiamato \emph{audiogramma}.
+
+
+
+INSERIRE QUI ESEMPI DI FORME D'ONDA
+
+\section{Misure dell'ampiezza}
+
+
+
+Intuitivamente, osservare quanto il tracciato del grafico si distanzia dall'asse orizzontale dà un'idea approssimativa di ``quanto forte'' è il suono, o della sua dinamica (non uso il termine ``intensità'', che ha un significato specifico definito più avanti). È utile definire alcune maniere diverse di misurare l'ampiezza di un fenomeno sonoro:
+
+\subsection{Ampiezza istantanea}
+
+L'\emph{ampiezza istantanea} è l'ampiezza misurata a un istante specifico del fenomeno sonoro. Di per sé, non ci dà un'informazione affidabile sul livello dinamico percepito, perché qualsiasi fenomeno sonoro è costituito dalla rapida alternanza di pressioni relativamente alte (cioè pressioni che, in una direzione o nell'altra, deviano in maniera importante dalla pressione atmosferica media) e pressioni relativamente basse (cioè pressioni prossime alla pressione atmosferica media). L'ampiezza istantanea è un valore \emph{segnato}: convenzionalmente, è positiva se rappresenta una pressione nella direzione nella direzione dall'emittente al recettore; negativa se rappresenta una pressione nella direzione dal recettore al ricevente. Naturalmente, può avere senso considerare il valore assoluto dell'ampiezza istantanea.
+
+\subsection{Ampiezza di picco}
+
+L'\emph{ampiezza di picco} è l'ampiezza di valore assoluto massimo entro un dato intervallo di tempo. Se l'intervallo è ragionevolmente ampio, può costituire una prima stima del livello dinamico percepito. L'ampiezza di picco è, in linea di principio, un valore segnato, per le stesse ragioni per cui lo è l'ampiezza istantanea. Nella pratica, spesso non è interessante sapere in quale direzione è stata esercitata la massima ampiezza rinvenuta: per questa ragione, viene normalmente considerato il valore assoluto dell'ampiezza di picco.
+
+\subsection{Ampiezza picco-picco}
+
+L'\emph{ampiezza picco-picco} è la differenza tra la massima e la minima ampiezza entro un dato intervallo di tempo. Nel caso di una forma d'onda perfettamente centrata sullo 0 coincide con il doppio dell'ampiezza di picco. Se però la forma d'onda non è centrata sullo 0, o se la posizione dello 0 non è nota con esattezza (per esempio perché esiste una componente di tensione continua),%
+\footnote{Una componente di tensione continua provoca una traslazione sull'asse verticale della rappresentazione nel dominio del tempo.}
+l'ampiezza picco-picco fornisce l'unica possibile misura affidabile. L'ampiezza picco-picco, secondo la definizione data sopra, non è mai negativa. 
+
+\subsection{Ampiezza RMS}
+
+L'\emph{ampiezza RMS} (da \emph{root-mean-square}: vedremo tra poco perché) è una misura che tiene conto dell'andamento dell'ampiezza nel tempo. Di conseguenza, può rappresentare in maniera più accurata il livello dinamico percepito, che a parità di ampiezza di picco (o picco-picco) sarà maggiore se, su scale di durata di frazioni di secondo, il segnale rimane forte più a lungo. La definizione di ampiezza RMS per un segnale campionato in ampiezza a intervalli di tempo regolari, come i segnali digitali che trattiamo abitualmente, è
+\begin{equation}\label{eq:rms}
+A_{\text{RMS}} = \sqrt{\frac{A_1^2+A_2^2+\ldots+A_n^2}{n}}
+\end{equation}
+dove $n$ è il numero totale di campioni e $A_1$ ... $A_n$ sono i valori di ampiezza istantanea dei singoli campioni entro la finestra temporale considerata. L'ampiezza RMS è quindi la radice quadrata della media dei quadrati delle ampiezze istantanee, da cui il nome. Se consideriamo invece un segnale continuo nel tempo, la definizione di RMS deve fare ricorso al concetto di integrale:%
+\footnote{Un integrale può essere visto come la somma di infiniti campioni di durata infinitesimale: ci serve quindi a calcolare il valore totalizzato da un fenomeno continuo. Se non sei familiare con questo formalismo ignora tranquillamente i dettagli di questa formula.}
+\begin{equation*}
+A_{\textrm{RMS}} = \sqrt{\frac{1}{t_2-t_1}\int_{t_1}^{t_2}(A(t))^2\textrm{d}t}
+\end{equation*}
+dove $t$ indica il tempo, $t_1$ e $t_2$ sono rispettivamente il tempo iniziale e finale considerati e $A(t)$ è l'ampiezza nel tempo.
+
+L'ampiezza RMS non può essere negativa, dal momento che non può esserlo il quadrato di un numero reale.
+
+
+\section{Intensità sonora}
+
+Dal punto di vista percettivo, più importante del concetto di pressione è quello di \emph{intensità sonora}. Per definirla correttamente abbiamo bisogno di introdurre alcune nozioni:
+
+
+\subsection{Energia e lavoro}
+Energia e lavoro sono due grandezze strettamente correlate, rappresentate dalle stesse unità di misura come il Joule e la caloria. Il lavoro è definito come la forza che sposta un corpo moltiplicata per lo spostamento effettuato:
+\begin{equation}
+W = F \cdot s
+\end{equation}
+L'energia può essere vista come la capacità di un corpo di svolgere un lavoro: si misura in termini del lavoro che in virtù di essa un corpo è in grado di svolgere. È una grandezza fisica fondamentale che obbedisce alla legge di conservazione: viene trasferita, non si crea e non si distrugge.%
+\footnote{Questa è una semplificazione: nelle reazioni nucleari, la materia viene trasformata in energia; ed è teoricamente possibile trasformare energia in materia. Nella meccanica classica, però, l'energia è sempre conservata.}
+In senso proprio, quindi, ciò che viene trasferito da un corpo vibrante alla membrana del nostro timpano è l'energia sonora, non la pressione sonora. In altri termini, il fatto che una pressione sonora si applichi al timpano è concettualmente una conseguenza del trasferimento di energia, e non viceversa.
+
+L'energia è proporzionale al quadrato della pressione sonora e, di conseguenza, al quadrato dell'ampiezza e di tutti gli altri fenomeni direttamente proporzionali all'ampiezza:%
+\footnote{La ragione di questa relazione discende dalle definizioni formali di pressione e di energia. Potresti chiederti: ma \emph{perché} è così? La fisica dovrebbe rispondere che la scienza si occupa del come, non del perché che è invece appannaggio della filosofia; ma qui puoi trovare alcuni tentativi, più o meno fantasiosi, di spiegazioni intuitive: \url{https://languagelog.ldc.upenn.edu/nll/?p=6508}. E, a dire il vero, anche il concetto di \emph{conseguenza}, impiegato in maniera un po' infingarda qualche riga sopra, sarebbe una questione filosofica più che scientifica.}
+\begin{equation}
+E \propto \Delta p^2 \propto \Delta A^2
+\end{equation}
+
+
+
+\subsection{Potenza}
+
+La \emph{potenza} (misurata in Watt e indicata qui dalla lettera $P$ maiuscola, da non confondersi con la $p$ minuscola con cui indichiamo la pressione) è una misura della quantità di lavoro svolto, o di energia dispiegata, per unità di tempo: 
+\begin{equation}
+P = \frac{W}{t}
+\end{equation}
+A parità di lavoro o di energia, la potenza è maggiore se il tempo è più breve. La stessa quantità di energia sonora dispiegata in un secondo o in un'ora darà luogo a fenomeni sonori di potenza diversa, maggiore nel primo caso (perché il lavoro è concentrato in un tempo più breve), minore nel secondo. A parità di tempo, la potenza è proporzionale all'energia e quindi al quadrato dell'ampiezza:
+\begin{equation}
+P \propto E \propto \Delta p^2 \propto A^2
+\end{equation}
+
+
+
+\subsection{Intensità}
+
+L'intensità sonora è una misura della potenza riferita all'area su cui questa è distribuita:
+\begin{equation}
+I = \frac{P}{a}
+\end{equation}
+
+L'intensità sonora non ha una sua specifica unità di misura, ma è misurata in Watt per metro quadrato ($\frac{W}{m^2}$ o $W \cdot m^{-2}$).
+
+Possiamo assumere che il suono, in assenza di ostacoli, si propaghi su un fronte d'onda di forma corrispondente a una superficie sferica a partire dall'emittente, che consideriamo puntiforme. La superficie sferica naturalmente sarà sempre più ampia via via che il fronte d'onda si allontana dalla sorgente, secondo la formula
+\begin{equation}
+a = 4 \pi r^2
+\end{equation}
+dove $a$ è l'area della sfera e $r$ il raggio, che in questo caso corrisponde alla distanza tra l'emittente e il fronte d'onda che stiamo considerando. Di conseguenza, possiamo dire che l'energia dispiegata dal fenomeno sonoro in un certo lasso di tempo si distribuisce su una superficie la cui area aumenta in maniera proporzionale al quadrato della distanza. In altri termini, posso pensare l'intensità sonora come la potenza portata dall'onda sonora su una certa superficie, in senso perpendicolare a essa, e a una certa distanza dall'emittente. E dunque, a parità di tutti gli altri parametri, l'intensità sonora è inversamente proporzionale al quadrato della distanza:
+\begin{equation}
+I \propto \frac{1}{r^2}
+\end{equation}
+
+Questa relazione è chiamata \emph{legge dell'inverso del quadrato} e si applica a un vasto insieme di altri fenomeni, tra cui l'intensità luminosa e l'attrazione gravitazionale.
+
+D'altra parte, l'intensità sonora è direttamente proporzionale alla potenza, all'energia e al quadrato della pressione e dell'ampiezza:
+\begin{equation}
+I \propto P \propto E \propto \Delta p^2 \propto A^2
+\end{equation}
+
+Di conseguenza,
+\begin{equation}
+\frac{1}{r^2} \propto \Delta p^2 \propto A^2
+\end{equation}
+e quindi
+\begin{equation}
+\frac{1}{r} \propto \Delta p \propto A
+\end{equation}
+
+Questo è un risultato molto importante: pressione, ampiezza e spostamento sono inversamente proporzionali alla distanza, non al suo quadrato. Si dice quindi che seguono la \emph{legge dell'inverso della distanza}.
+
+
+
+\section{Riepilogo e classificazione delle grandezze}
+
+Abbiamo quindi definito due categorie di grandezze fisiche nelle quali ci imbatteremo ancora, e sulle quali non dev'esserci confusione:
+
+\subsubsection{Quantità proporzionali alla potenza (\emph{power quantities})}
+
+La prima categoria include l'energia, il lavoro, la potenza e l'intensità sonora. È importante ricordare che da un punto di vista concettuale la quantità fondamentale tra queste è l'energia, che gode del principio di conservazione. L'energia, il lavoro e la potenza non variano con la distanza: la quantità di energia (e quindi di lavoro e di potenza) in gioco è quella trasferita o trasferibile dall'emittente ai corpi circostanti, e rispetto a essa la distanza non è un parametro rilevante. La distanza entra in gioco quando si considera l'intensità sonora, che segue la \emph{legge dell'inverso del quadrato}.
+
+
+\subsubsection{Quantità proporzionali alla radice quadrata della potenza (\emph{root-power quantities})}
+
+La seconda categoria include la pressione sonora e la tensione elettrica. La potenza è proporzionale al quadrato di queste grandezze: di conseguenza, queste saranno proporzionali alla radice quadrata della potenza, da cui il nome:
+\begin{equation}
+W \propto \Delta p^2 \implies \Delta p \propto \sqrt{W}
+\end{equation}
+
+Si tratta di grandezze a cui non si applica principio di conservazione e che variano in maniera inversamente proporzionale alla distanza. Concettualmente, possiamo considerare i fenomeni rappresentati da queste grandezze come conseguenze del trasferimento di energia. D'altra parte la pressione sonora è il fenomeno che viene direttamente misurato da una membrana di microfono o dal nostro timpano.
+
+L'ampiezza, in senso proprio, non è una grandezza fisica perché non descrive un fenomeno specifico; possiamo però considerarla un'astrazione delle \emph{root-power quantities}, utile quando vogliamo considerare il fenomeno sonoro in maniera indipendente dal fenomeno fisico che l'ha prodotto; questo è particolarmente rilevante nel momento in cui trattiamo il suono dal punto di vista elettroacustico e, di conseguenza, numerico.
+
+
+
+\section{Intermezzo: i logaritmi --- un ripasso}
+
+Il prossimo concetto che introdurremo richiede uno strumento matematico che dovresti già conoscere, ma che potrebbe meritare un veloce ripasso: il \emph{logaritmo}.
+
+Il logaritmo è definito come l'operazione inversa rispetto all'elevamento a potenza: cioè, se $b^x = y$ allora $\log _b y = x$. Chiamiamo $b$ la \emph{base} del logaritmo.
+
+I logaritmi hanno alcune proprietà molto utili, che sono facilmente dimostrabili ma che mi limiterò a enunciare:
+
+\begin{itemize}
+
+\item Il logaritmo di 1 in qualsiasi base è 0, perché qualsiasi numero elevato a potenza 0 dà 1.
+
+\item Il logaritmo di qualsiasi numero maggiore di 1 è positivo in qualsiasi base; il logaritmo di qualsiasi numero maggiore di 0 e minore di 1 è negativo in qualsiasi base.
+
+\item Il logaritmo di 0 e di numeri negativi non esiste.
+
+\item La somma di due logaritmi di uguale base è uguale al logaritmo (nella stessa base) del prodotto: $\log _b x + \log _b y = \log _b (xy)$. Questa identità rende tra l'altro evidente il fatto che il logaritmo non è una funzione lineare. 
+
+\item È possibile trasformare un esponente dentro il logaritmo in un prodotto fuori dal logaritmo: $\log _b x^y = y \log _b x$. Queste due ultime affermazioni possono essere intese intuitivamente pensando che il logaritmo ci permette di ``scendere di livello'' con le operazioni aritmetiche: trasforma l'elevamento a potenza in moltiplicazione e la moltiplicazione in addizione. Per lungo tempo, questa semplificazione dei calcoli è stata la prima ragione per usare i logaritmi.
+
+\item I logaritmi in tutte le basi sono direttamente proporzionali tra loro: cioè, è possibile passare da una base all'altra applicando al logaritmo un coefficiente --- più specificatamente, $\log _b x = \frac{\log _c b}{\log _c a}$, dove $c$ è una base scelta arbitrariamente. Questa formula, detta \emph{formula del cambio di base}, ci dice tra l'altro che se conosciamo i logaritmi in una base qualsiasi possiamo calcolare logaritmi in qualsiasi altra base.
+
+\item Il logaritmo ci dà una misura dei rapporti tra numeri: la differenza dei logaritmi di coppie di numeri in rapporto 2:1 sarà sempre la stessa (il valore esatto della differenza dipende dalla base del logaritmo). Quindi $\frac{x}{y} = \frac{z}{w} \implies \log _b x - \log _b y = \log _b z - \log _b w$. Per esempio, in base 10 un rapporto di 2:1 corrisponderà a una differenza tra i logaritmi di circa 0.301 (incontreremo di nuovo molto presto questo valore). 
+
+\item Il logaritmo del reciproco di un numero è il negativo del logaritmo di quel numero: $log _b \frac{1}{x} = -log _b x$.
+
+\item Il logaritmo in base 10 ci dà una misura della ``lunghezza tipografica'' di un numero intero: $log_{10}10 = 1$, $log_{10}100 = 2$, $log_{10}1000 = 3$ e così via; per argomenti intermedi avremo valori di logaritmo intermedi (ma, ovviamente, non \emph{linearmente} intermedi: $log_{10}55 \approx 1,74$, che è molto più vicino a $log_{10}100$ che a $log_{10}10$ anche se 55 è la media esatta tra 10 e 100). Generalizzando ulteriormente, il logaritmo in base $b$ ci dà una misura della ``lunghezza tipografica'' di un numero rappresentato in base di numerazione $b$.
+
+\end{itemize}
+
+
+
+
+\section{Decibel}
+
+Le pressioni (o, dovremmo dire, i $\Delta p$) che possiamo percepire come fenomeni sonori --- abbastanza forti da essere udite, non così forti da danneggiare le nostre orecchie --- si situano approssimativamente in un ambito compreso tra i \qty{20}{\micro\pascal} e i \qty{20}{\Pa}. La nostra scala percettiva della dinamica, però, è tutt'altro che lineare rispetto all'ambito di pressione così misurato; la distanza percettiva tra un suono A di pressione \qty{100}{\micro\pascal} e un suono B di \qty{200}{\micro\pascal} sarà decisamente diversa rispetto a quella tra un suono C di pressione \qty{1000}{\micro\pascal} e un suono D di \qty{1100}{\micro\pascal}, nonostante la differenza tra A e B sia la stessa che tra C e D, e cioè di \qty{100}{\micro\pascal}.
+
+Invece, la distanza percettiva tra un suono A di pressione \qty{100}{\micro\pascal} e un suono B di \qty{200}{\micro\pascal} sarà decisamente diversa rispetto a quella tra un suono C di pressione \qty{1000}{\micro\pascal} e un suono D di \qty{2000}{\micro\pascal}: l'osservazione rilevante è che il rapporto di pressione tra A e B è lo stesso che tra C e D, e cioè $\frac{1}{2}$. 
+
+Il fatto che tendiamo a graduare molti fenomeni secondo i rapporti moltiplicativi tra le grandezze fisiche coinvolte piuttosto che secondo le loro differenze è talvolta considerata una legge fondamentale della percezione umana, chiamata \emph{legge di Fechner}. Guardando questa relazione moltiplicativa da un punto di vista leggermente diverso, possiamo dire che la nostra scala percettiva è tendenzialmente \emph{logaritmica} rispetto alla grandezza fisica osservata, dal momento che lo stesso rapporto moltiplicativo corrisponde alla stessa differenza tra i logaritmi. Tornando all'ultimo esempio,
+\begin{equation}
+\begin{aligned}
+log_{10}100 = 2\\
+log_{10}200 \approx 2.301\\
+log_{10}1000 = 3\\
+log_{10}2000 \approx 3.301\\
+log_{10}200 - log_{10}100 = log_{10}2000 - log_{10}1000 \approx 0.301
+\end{aligned}
+\end{equation}
+e anche, per la definizione stessa di logaritmo,
+\begin{equation}
+log_{10}\frac{200}{100} = log_{10}\frac{2000}{1000} = log_{10}2 \approx 0.301 
+\end{equation}
+e, già che ci siamo,
+\begin{equation}
+log_{10}\frac{100}{200} = log_{10}\frac{1000}{2000} = log_{10}\frac{1}{2} \approx -0.301 
+\end{equation}
+
+Da questa constatazione discende la definizione di bel (\unit{B}), un'unità di misura adimensionale che, in una delle sue possibili definizioni, esprime il logaritmo decimale del rapporto tra due intensità sonore:
+\begin{equation}
+L_{B} = log_{10}\frac{I}{I_0}
+\end{equation}
+dove $I$ è l'intensità sonora che vogliamo misurare rispetto a un'intensità di riferimento $I_0$. 
+
+Molto più spesso del bel, in realtà, è usato il decibel, corrispondente alla decima parte del bel:
+\begin{equation}
+L_{dB} = 10 \cdot log_{10}\frac{I}{I_0}
+\end{equation}
+
+Formule analoghe possono essere usate per esprimere la relazione tra due livelli di energia sonora o di potenza sonora, dal momento che si tratta di grandezze proporzionali tra loro:
+\begin{equation}
+L_{dB} = 10 \cdot log_{10}\frac{E}{E_0}
+\end{equation}
+\begin{equation}
+L_{dB} = 10 \cdot log_{10}\frac{P}{P_0}
+\end{equation}
+
+Una proprietà fondamentale di questa definizione di decibel è la sua coerenza con un'altra definizione equivalente, ma riferita al rapporto tra due pressioni sonore:
+\begin{equation}
+L_{dB} = 20 \cdot log_{10}\frac{\Delta p}{\Delta p_0}
+\end{equation}
+
+L'equivalenza tra queste due definizioni discende dalla relazione quadratica tra pressione e intensità sonora e dalla proprietà che permette di ``tramutare'' un esponente dentro il logaritmo in un coefficiente fuori dal logaritmo:
+\begin{equation}
+log x^a = a \cdot log x
+\end{equation}
+e quindi:
+\begin{equation}
+\begin{aligned}
+L_{dB} = 10 \cdot log_{10}\frac{I}{I_0}\\
+= 10 \cdot log_{10}\frac{\Delta p^2}{\Delta p_0^2}\\
+= 10 \cdot log_{10}(\frac{\Delta p}{\Delta p_0})^2\\
+= 2 \cdot 10 log_{10}\frac{\Delta p}{\Delta p_0}\\
+= 20 log_{10}\frac{\Delta p}{\Delta p_0}
+\end{aligned}
+\end{equation}
+
+Formule analoghe a quella che definisce il decibel in riferimento alla pressione sonora possono essere usate considerando altre grandezze a essa proporzionali, come l'ampiezza e la tensione elettrica:
+\begin{equation}
+L_{dB} = 20 \cdot log_{10}\frac{A}{A_0}
+\end{equation}
+\begin{equation}
+L_{dB} = 20 \cdot log_{10}\frac{V}{V_0}
+\end{equation}
+
+Quale che sia il valore di riferimento di pressione sonora, intensità, potenza, voltaggio, ampiezza o altro, ci sono alcune considerazioni generali che possono essere fatte:
+
+\begin{itemize}
+
+\item A un suono al livello di riferimento corrisponde sempre un livello di \qty{0}{dB}: se per esempio $I$ è uguale a $I_0$, e poiché il logaritmo di 1 in qualsiasi base è 0, allora
+\begin{equation}
+L_{dB} = 10 \cdot log_{10}\frac{I}{I_0} = 10 \cdot log_{10}1 = 10 \cdot 0 = 0
+\end{equation}
+e lo stesso vale se invece dell'intensità si considera la pressione acustica, o l'ampiezza, o qualsiasi altra delle grandezze che abbiamo citato.
+
+\item A suoni più forti del valore di riferimento (cioè con ampiezza, pressione, intensità ecc. superiori a esso) corrispondono livelli in decibel positivi; a suoni più deboli del valore di riferimento corrispondono livelli in decibel negativi. Infatti nel primo caso il rapporto tra valore misurato e valore di riferimento sarà maggiore di 1, e quindi il suo logaritmo maggiore di 0; nel secondo caso il rapporto sarà maggiore di 0 e minore di 1, e quindi il suo logaritmo minore di 0.
+
+\item Il valore di riferimento non può essere il silenzio perfetto (corrispondente a un valore di intensità sonora, pressione sonora, ampiezza ecc. pari a 0), perché in questo caso metteremmo uno 0 sotto la linea di frazione e la divisione per 0 ha risultato indefinito.
+
+\item In senso proprio, neppure il valore misurato può essere il silenzio perfetto, perché questo vorrebbe dire calcolare il logaritmo di 0 che pure non è definito. Con un leggero abuso di terminologia, si usa però spesso scrivere che il silenzio perfetto corrisponde a $-\infty$ dB. In senso proprio, il silenzio perfetto esiste solo nel contesto astratto delle rappresentazioni numeriche.
+
+\item In ogni caso, anche quando il valore misurato o il valore di riferimento derivano da misurazioni con segno come la misurazione dell'ampiezza istantanea, nel calcolo del livello in dB si considera sempre il loro valore assoluto, perché il logaritmo dei numeri negativi non è definito.
+
+\end{itemize}
+
+La scala dei decibel, come dicevamo, rappresenta una modellizzazione semplice della maniera in cui la percezione umana gradua l'intensità del fenomeno sonoro. In maniera estremamente approssimativa, ma non completamente sbagliata, possiamo considerare che una differenza di 1, o 10, o 50 dB tra due suoni altrimenti identici abbia sempre lo stesso ``peso'' percettivo. Questo è particolarmente importante in elettroacustica e informatica musicale, contesti nei quali è semplice controllare in maniera precisa l'ampiezza di un suono senza modificare gli altri suoi parametri. 
+
+
+
+\section{Livelli di riferimento convenzionali per i decibel}
+
+Il decibel è una misura relativa, che però può essere impiegata in maniera assoluta se viene fissato un valore di riferimento per $A_0$, $\Delta p_0$, $V_0$, $W_0$ e così via. Esistono alcuni valori di riferimento convenzionali che danno luogo a scale assolute utili in contesti diversi. Queste comprendono, tra le altre:
+
+\begin{itemize}
+
+\item{$dB_{SPL}$}, dove SPL sta per \emph{sound pressure level}: misura la pressione acustica rispetto a una $P_0$ di \qty{20}{\micro\pascal}, corrispondenti approssimativamente alla soglia di udibilità umana. Quando nel linguaggio comune si dice ``in quel locale la musica era a 90 dB'' si sottintende che si sta parlando di $dB_{SPL}$. Tutti i suoni udibili avranno livelli non negativi in $dB_{SPL}$. La pressione sonora di \qty{20}{\pascal} che viene spesso indicata come la massima che l'orecchio umano può tollerare senza subire danni permanenti corrisponderà quindi a un livello sonoro di 120 dB\ped{SPL}:
+\begin{equation}
+L_{dB} = 20 \cdot log_{10}\frac{20 \unit{Pa}}{20 \unit{\micro\pascal}} = 20 \cdot log_{10}10^6 = 20 \cdot 6 = 120
+\end{equation}
+
+\item{$dB_{FS}$}, dove FS sta per \emph{full scale}: misura l'ampiezza rispetto al massimo livello rappresentabile in un sistema audio digitale a rappresentazione intera o in virgola fissa.%
+\footnote{Maggiori dettagli su queste rappresentazioni saranno dati più avanti. Per il momento, possiamo considerare come minimo che si tratta delle rappresentazioni usate dalle interfacce audio e dalla maggior parte dei formati di file audio.}
+Tutti i suoni correttamente rappresentabili in un tale sistema avranno livelli non positivi in $dB_{FS}$.
+
+\end{itemize}
+
+Esistono numerose altre scale di riferimento usate in elettroacustica e psicoacustica, ma non le approfondiremo qui.
+
+
+
+
+\section{Piccola aritmetica dei decibel}
+
+Succede spesso di dover convertire in decibel un rapporto di ampiezze, o viceversa. Questo può essere facilmente fatto con Max tramite gli oggetti \emph{atodb} e \emph{dbtoa}, ma è utile avere in mente almeno alcune identità semplici:
+
+\begin{itemize}
+
+\item Se un dato rapporto di ampiezza corrisponde a un guadagno pari a $L_{dB}$, allora l'inverso di tale rapporto corrisponderà a un guadagno pari a $-L_{dB}$: se
+
+\begin{equation}
+20 \cdot log_{10} \frac{A}{A_0} = L_{dB}
+\end{equation}
+allora
+\begin{equation}
+\begin{aligned}
+20 \cdot log_{10} \frac{A_0}{A} =\\
+20 \cdot log_{10} \frac{1}{\frac{A_0}{A}} =\\
+20 \cdot log_{10} (\frac{A}{A_0})^{-1} =\\
+-1 \cdot 20 \cdot log_{10} \frac{A}{A_0} =\\
+-1 \cdot L_{dB} =\\
+-L_{dB}
+\end{aligned}
+\end{equation}
+
+\item Raddoppiare l'ampiezza corrisponde a un guadagno di circa \qty{6}{dB}, dal momento che $log_{10} 2 \approx 0.301$ e quindi $20 \cdot log_{10} 2 \approx 6.02$. Poiché uno scarto di \qty{0.02}{dB} è nella maggior parte dei casi del tutto irrilevante, spesso si considera l'identità come esatta anziché approssimata.
+
+\item Dimezzare l'ampiezza corrisponde a un guadagno di circa \qty{-6}{dB}.
+
+\item Moltiplicare per 10 l'ampiezza corrisponde a un guadagno di esattamente \qty{20}{dB}, poiché $log_{10} 10 = 1$ e quindi $20 \cdot log_{10} 10 = 20$.
+
+\item Dividere per 10 l'ampiezza corrisponde a un guadagno di esattamente \qty{-20}{dB}.
+
+\end{itemize}
+
+Considerando che, in virtù delle proprietà dei logaritmi che abbiamo visto sopra, moltiplicazioni dell'ampiezza corrispondono sempre a somme algebriche di decibel ed elevamenti a potenza dell'ampiezza corrispondono a moltiplicazioni di decibel, le identità riportate sopra possono essere utili per fare alcuni calcoli in maniera semplice. Per esempio:
+
+\begin{itemize}
+
+\item Un guadagno di 100, cioè $10 \cdot 10$, corrisponde a $20 + 20 = 40$ dB.
+
+\item Un guadagno di 20, cioè $2 \cdot 10$, corrisponde a circa $6 + 20 = 26$ dB.
+
+\item Un'attenuazione di 1000, cioè un guadagno di $\frac{1}{1000}$ o $10^{-3}$ corrisponde a $20 \cdot -3 = -60$ dB.
+
+\item \qty{8}{dB}, cioè $20 - 2 \cdot 6$ dB, corrispondono a un guadagno di circa $10 \cdot 2^{-2} = 10 \cdot \frac{1}{4} = 2.5$
+
+\item \qty{10}{dB}, cioè $20 \cdot \frac{1}{2}$ dB, corrispondono a un guadagno di $10^\frac{1}{2} = \sqrt{10} \approx {3.16}$
+
+\end{itemize}
+
+Queste operazioni corrispondono, tra l'altro, al collegamento in serie di amplificatori o attenuatori, come avviene normalmente nel percorso del segnale lungo una catena elettroacustica o all'interno di un mixer. Se per esempio lo stadio di guadagno di un mixer è regolato a \qty{40}{dB}, il fader del corrispondente canale a \qty{-10}{dB} e il livello di uscita a \qty{-20}{dB} (assumendo che non ci siano altre trasformazioni del segnale, come equalizzazioni o altro) sapremo che il segnale in uscita dal mixer sarà $40-10-20 = 10$ dB più forte rispetto a quello in entrata, e quindi che il voltaggio in uscita sarà circa pari al voltaggio in entrata moltiplicato per 3.16.
+
+
+
+  

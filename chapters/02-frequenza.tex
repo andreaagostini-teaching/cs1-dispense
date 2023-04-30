@@ -1,0 +1,467 @@
+
+\chapter{Frequenza}
+
+
+\section{Frequenza e sue unità di misura}
+
+La nostra rappresentazione cognitiva del suono non avviene nei termini di rapide oscillazioni di pressione dell'aria, ma piuttosto in termini di successioni ed evoluzioni nel tempo di altezze e timbri. Per fare ciò, individuiamo nell'andamento della pressione sonora strutture anche grossolanamente regolari nel tempo e le analizziamo dal punto di vista frequenziale: cioè, in sostanza, valutiamo quante volte tali strutture si ripetono, anche in maniera estremamente approssimativa, in una data unità temporale. Da tale valutazione siamo in grado di trarre informazioni sulle qualità e sull'attività dell'emittente. A complemento di ciò, siamo dotati di un apparato fonatorio in grado di emettere vibrazioni regolari di pressione acustica in maniera estremamente controllata: dalla relazione tra emissione e percezione di tali vibrazioni nasce la parola; la musica, la sua origine, il suo ruolo evolutivo sono fatti più misteriosi e sfuggenti, ma sono basati almeno parzialmente sugli stessi meccanismi.
+
+Introduciamo quindi il concetto di frequenza e la sua misurazione: dato un fenomeno che varia in maniera regolare, possiamo individuare il suo periodo, cioè l'intervallo temporale che intercorre tra due sue ripetizioni. Chiamiamo questo periodo $\Delta t$ e lo misuriamo tramite unità di misura di tempo: millisecondi, secondi, minuti, ore, giorni...
+
+La frequenza indica quante volte la variazione regolare avviene in una data unità di tempo: per esempio, quanti periodi ci sono in un secondo, in un minuto, in un'ora. Possiamo quindi definirla come l'inverso del periodo:
+\begin{equation}
+f = \frac{1}{\Delta t} = {\Delta t}^{-1}
+\end{equation}
+e quindi
+\begin{equation}
+{\Delta t} = \frac{1}{f} = f^{-1}
+\end{equation}
+
+Possiamo misurare la frequenza ad esempio in hertz (Hz, cicli per secondo), kilohertz (kHz, migliaia di Hertz o cicli per millisecondo), pulsazioni al minuto (BPM, cicli per minuto). Nota che le formule scritte sopra si possono applicare in maniera letterale solo se le unità del tempo e della frequenza corrispondono; se così non è, sarà necessaria una conversione: per esempio,
+\begin{equation}
+f_{Hz} = \frac{1}{\Delta t_{s}}
+\end{equation}
+e
+\begin{equation}
+f_{kHz} = \frac{1}{\Delta t_{ms}}
+\end{equation}
+ma
+\begin{equation}
+f_{kHz} = 1000\frac{1}{\Delta t_{s}} = \frac{1000}{\Delta t_{s}}
+\end{equation}
+e
+\begin{equation}
+f_{BPM} = 60\frac{1}{\Delta t_{s}} = \frac{60}{\Delta t_{s}}
+\end{equation}
+
+Tutto quanto detto fin qui riguarda in senso stretto la \emph{frequenza fondamentale} di un segnale, che è appunto l'inverso della durata di una delle sue ripetizioni nell'unità di tempo.
+
+Sappiamo però che qualsiasi segnale può essere scomposto in una somma potenzialmente infinita di segnali sinusoidali. Prima di tutto allora abbiamo bisogno di una definizione di sinusoide.
+
+
+\section{Seni e coseni}
+
+Esistono funzioni matematiche dette periodiche, che ripetono all'infinito un comportamento sempre uguale e che ci riguardano molto da vicino, visto che sono quelle per le quali ha senso definire una frequenza.
+
+Le funzioni periodiche sono molte --- un'infinità, letteralmente --- ma ce ne sono due che hanno alcune proprietà in virtù delle quali esse costituiscono il mattone elementare a partire dal quale costruiremo gran parte del nostro discorso sul suono. Queste funzioni sono il \emph{seno} e il \emph{coseno}, che rappresentano rispettivamente la proiezione sull'asse verticale e orizzontale di un punto della circonferenza goniometrica:%
+\footnote{La circonferenza goniometrica (\emph{unit circle} in inglese) è una circonferenza tracciata nel piano cartesiano, con centro corrispondente all'origine degli assi e raggio pari a 1.}
+se prendo un raggio della circonferenza che forma un angolo $\alpha$ in senso antiorario rispetto all'asse delle ascisse, il seno di $\alpha$ è la proiezione sull'asse verticale del punto in cui questo raggio tocca la circonferenza; e il coseno di $\alpha$ è la proiezione dello stesso punto sull'asse orizzontale.
+
+Vediamo ora alcuni fatti fondamentali relativi a seno e coseno.
+
+\subsection{Radianti}
+
+L'argomento di una funzione seno o coseno è un angolo che viene normalmente espresso in radianti, dove il radiante è una misura adimensionale che rappresenta il rapporto tra la lunghezza di un arco di circonferenza definito da un dato angolo e il raggio della stessa circonferenza. Consideriamo l'arco definito da un angolo di 360°: in questo caso, l'arco corrisponde all'intera circonferenza, la cui lunghezza $c$ possiamo calcolare a partire dal raggio $r$ come
+\begin{equation}
+c = 2 \pi r
+\end{equation}
+e quindi l'angolo in radianti corrispondente a 360° sarà
+\begin{equation}
+360^{\circ} = \frac{2 \pi r}{r} = 2 \pi
+\end{equation}
+
+Altri misure di angoli che incontreremo spesso sono
+\begin{equation}
+90^{\circ} = \frac{\pi}{2}
+\end{equation}
+e
+\begin{equation}
+180^{\circ} = \pi
+\end{equation}
+
+Nota che un angolo espresso in radianti non porta un'unità di misura.
+
+
+\subsection{Relazione tra seni e coseni}
+
+Il seno e il coseno hanno esattamente lo stesso andamento, traslato di un quarto di cerchio (cioè 90°). È facile immaginare il perché: un cerchio è sempre ``fatto nello stesso modo'' comunque io lo ruoti, e ruotando tutta la figura di 90° quello che prima era l'asse dell'ordinata si ritrova ora sull'asse dell'ascissa. Quindi
+\begin{equation}
+\cos \alpha = \sin(\alpha + \frac{\pi}{2})
+\end{equation}
+
+
+\subsection{Codominio}
+
+Il codominio del seno e del coseno --- cioè, l'ambito di valori $y$ che una funzione seno o coseno $y = sin x$ o $y = cos x$ può assumere --- è compreso tra -1 e 1. Anche questo è facile da vedere, per via del fatto che la circonferenza goniometrica ha raggio 1 e quindi tutti i suoi punti sono compresi tra -1 e 1 sia sull'ascissa che sull'ordinata. Quindi, per qualsiasi angolo $x$
+
+\begin{equation}
+-1 \leq \sin x \leq 1
+\end{equation}
+e
+\begin{equation}
+-1 \leq \cos x \leq 1
+\end{equation}
+
+Di conseguenza, l'ampiezza picco-picco delle funzioni seno e coseno è 2.
+
+
+\subsection{Dominio e periodicità}
+
+Il dominio del seno e del coseno è infinito: angoli più grandi di un giro (cioè di $2\pi$) sono possibili e ben definiti, e i punti che questi definiscono sulla circonferenza corrispondono a punti definiti da angoli più piccoli del giro. Possiamo dire che, continuando a far ruotare il raggio dopo che ha compiuto un giro, questo continua a ripercorrere sempre lo stesso percorso. Possiamo estendere il ragionamento ad angoli negativi, che possono essere visti come angoli calcolati facendo ruotare il raggio in senso orario anziché antiorario.
+
+Questa considerazione in definitiva spiega perché seno e coseno sono funzioni periodiche, che si ripetono uguali a sé stesse a ogni giro di circonferenza, cioè ogni $2 \pi$ radianti. Quindi
+\begin{equation}
+\forall n \in \mathbb{Z}, \sin(x + 2 \pi n) = \sin x
+\end{equation}
+e
+\begin{equation}
+\forall n \in \mathbb{Z}, \cos(x + 2 \pi n) = \cos x
+\end{equation}
+
+Per questa ragione, di solito si preferisce utilizzare come argomenti del seno e del coseno valori compresi tra 0 e $2 \pi$ o, talvolta, tra $-\pi$ e $\pi$, a meno che non ci siano ragioni forti per fare altrimenti.
+
+
+
+
+
+\section{Sinusoidi}
+
+Si può generalizzare la nozione di seno e coseno in quella più astratta di sinusoide. Una sinusoide è una qualsiasi funzione che abbia l'andamento di un seno o di un coseno, ma che abbia un periodo potenzialmente diverso da $2 \pi$; che sia potenzialmente traslata lungo l'asse orizzontale; e la cui ampiezza picco-picco sia potenzialmente diversa da 2, fermo restando che il codominio dev'essere simmetrico rispetto allo 0.
+
+\subsection{Frequenza}
+
+Il termine della frequenza controlla la periodicità della funzione. Ad esempio, possiamo definire una funzione sinusoidale con frequenza 1 (cioè che si ripete esattamente una volta per ogni incremento unitario sull'asse $x$) come
+\begin{equation}
+s(x) = \sin(2 \pi x)
+\end{equation}
+
+Più in generale, possiamo definire una funzione sinusoidale con frequenza $f$ come
+\begin{equation}
+s(x) = \sin({2 \pi} f x)
+\end{equation}
+
+Poiché, nel caso specifico del discorso sul suono, $x$ rappresenta generalmente il tempo, spesso scriviamo
+\begin{equation}
+s(t) = \sin({2 \pi} f t)
+\end{equation}
+
+Alcuni testi, come il Puckette, preferiscono parlare di velocità angolare anziché di frequenza, introducendo un termine
+\begin{equation}
+\omega = 2 \pi f
+\end{equation}
+per cui
+\begin{equation}
+f = \frac{\omega}{2 \pi}
+\end{equation}
+
+$\omega$ rappresenta non il periodo, cioè i cicli per unità di tempo, ma i radianti per unità di tempo. Questo rende più semplice ma meno tangibile l'equazione della sinusoide, che diventa
+\begin{equation}
+s(t) = \sin(\omega t)
+\end{equation}
+
+La funzione sinusoidale è considerata, citando Curtis Roads, \emph{sub specie \ae{}ternitatis}: la sua espressione non contiene un termine che rappresenti una sua durata nel tempo. Dal momento che il suo dominio non è limitato, una sinusoide è un fenomeno che non ha un inizio e non ha una fine.
+
+
+\subsection{Ampiezza}
+
+L'ampiezza di una sinusoide può essere espressa tramite un coefficiente che moltiplica il seno:
+\begin{equation}
+s(t) = k \cdot \sin(2 \pi f t)
+\end{equation}
+
+Il valore assoluto di questo coefficiente rappresenta l'ampiezza di picco della sinusoide; il doppio del valore assoluto, $2k$, ne rappresenta l'ampiezza picco-picco. Se $k$ è negativo, la sinusoide si ritrova rispecchiata rispetto all'asse orizzontale. Se $k$ è 0 stiamo rappresentando il silenzio, e il termine della frequenza è ininfluente e perde significato (come pure quello della fase che vedremo tra poco).
+
+
+\subsection{Fase}
+
+Aggiungendo all'argomento un termine fisso $\phi$, detto \emph{fase}, si può traslare l'intera funzione sinusoidale sull'asse orizzontale:
+\begin{equation}
+s(t) = k \cdot \sin(2 \pi f t + \phi)
+\end{equation}
+In generale, il termine di fase è considerato compreso tra 0 e $2 \pi$ o tra $-\pi$ e $\pi$: qualsiasi fase fuori dall'ambito di riferimento è equivalente a una fase entro esso, dal momento che la sinusoide ha un periodo di $2 \pi$. Il rovesciamento rispetto all'asse orizzontale prodotto da un coefficiente $k$ negativo è equivalente a una rotazione di fase di $\pi$, cioè di mezzo giro:
+\begin{equation}
+k \cdot \sin(2 \pi f t + \phi) = -k \cdot \sin(2 \pi f t + \phi + \pi) = -k \cdot \sin(2 \pi f t + \phi - \pi)
+\end{equation}
+
+Inoltre, una rotazione di fase di $\frac{\pi}{2}$ (un quarto di giro, o 90°) corrisponde alla trasformazione della funzione seno in una funzione coseno:
+\begin{equation}
+k \cdot \sin(2 \pi f t + \phi) = k \cdot \cos(2 \pi f t + \phi - \frac{\pi}{2})
+\end{equation}
+
+
+\subsection{Somme di sinusoidi alla stessa frequenza}
+
+Sommando due sinusoidi alla stessa frequenza si ottiene un'altra sinusoide, generalmente di ampiezza e fase diversa ma con la stessa frequenza:
+\begin{equation}
+k_1 \cdot \sin(2 \pi f t + \phi_1) +  k_2 \cdot \sin(2 \pi f t + \phi_2) = k \cdot \sin(2 \pi f t + \phi)
+\end{equation}
+
+Inoltre, una sinusoide con qualsiasi fase può essere espressa come la somma di una sinusoide seno e una sinusoide coseno con fase nulla (cioè, di una sinusoide seno con fase nulla e una con termine di fase ruotato di $\pi$) alla stessa frequenza della sinusoide originale:
+\begin{equation}
+k \cdot \sin(2 \pi f t + \phi) = k_1 \cdot \sin(2 \pi f t) + k_2 \cdot \cos(2 \pi f t)
+\end{equation}
+
+Se vuoi approfondire queste due formule, ti consiglio di guardare qui: \url{https://www.dsprelated.com/showarticle/635.php}.
+
+
+
+\section{Percezione della frequenza, spazio delle altezze}
+
+La frequenza fondamentale è il parametro essenziale legato alla percezione d'altezza di un suono. In linea di principio, quindi, il concetto di altezza può essere applicato soltanto a suoni periodici. Nella pratica, tuttavia, perché la percezione umana possa attribuire un'altezza a un suono, non serve che questo sia esattamente periodico --- e, naturalmente, non serve che sia illimitato nel tempo: è sufficiente solo una periodicità molto approssimativa ed estesa a un tempo relativamente breve (in generale, qualcosa attorno al decimo di secondo --- di più per suoni gravi, talvolta meno per suoni acuti).
+
+Nella nostra percezione dell'altezza è fondamentale il concetto di intervallo: l'intervallo è, semplificando il concetto, ciò che percepiamo come la ``distanza'' tra due altezze diverse. La riconoscibilità di una struttura melodica o armonica non è tanto data dalle altezze in termini assoluti, ma dalla configurazione (nel tempo, per la melodia; nella simultaneità, per l'armonia) dei suoi intervalli. L'intervallo, da parte sua, può essere definito come un particolare rapporto tra frequenze. Per ragioni storiche e teoriche molto lontane da ciò di cui ci occupiamo qui, certi rapporti semplici hanno nomi specifici: per esempio, un rapporto di frequenze 2:1 è chiamato ottava; un rapporto 3:2 è chiamato quinta; un rapporto 4:3 è chiamato quarta; 5:4 è chiamato terza maggiore; 6:5 terza minore; 9:8 seconda maggiore.%
+%\footnote{Nella prassi moderna, nessuno di questi intervalli viene associato esattamente a questi rapporti, ma ad altri rapporti vicini a questi che hanno particolari proprietà matematiche e combinatorie. Di questo abbiamo parlato in Tecniche Compositive 1, e dovremmo parlare in un'altra dispensa.}
+
+Il fatto che nominiamo le distanze tra le altezze in base ai loro rapporti implica che l'organizzazione dell'altezza rispetto alla scala delle frequenze sia di tipo logaritmico, in maniera non dissimile --- ma in realtà molto più precisa nella nostra percezione --- a quanto abbiamo visto a proposito delle ampiezze. Questo vuol dire, tra l'altro, che lo stesso intervallo corrisponderà a una differenza frequenziale molto più piccola nel grave che nell'acuto. Per esempio, la quinta a partire da una frequenza di 110 Hz si trova a 165 Hz,%
+\footnote{Questo corrisponde all'intervallo la-mi in chiave di basso.}
+e quindi la differenza tra le due frequenze coinvolte è di 55 Hz; d'altra parte, la quinta a partire da una frequenza di 440 Hz si trova a 660 Hz,
+\footnote{Questo corrisponde all'intervallo la-mi in chiave di violino.}
+con una differenza frequenziale di 220 Hz.
+
+Possiamo quindi dare una preliminare e parziale definizione di \emph{spazio delle altezze}, in relazione logaritmica con lo spazio delle frequenze. Per approfondire tale relazione bisognerebbe addentrarsi nella teoria dei temperamenti e dei sistemi di accordatura. Per il momento, riporto senza dimostrarli solo alcuni punti basilari che stanno alla base della teoria musicale e dell'organologia occidentale moderna:
+
+\begin{itemize}
+
+\item Gli unici intervalli che, nella più diffusa prassi moderna, mantengono il rapporto di frequenza semplice enunciato sopra (che deriva da proprietà acustiche fondamentali del suono e che è alla base di molti temperamenti antichi e non solo) sono l'ottava, con rapporto 2:1, e i suoi multipli.
+
+\item L'ottava è divisa in 12 semitoni, tutti definiti dallo stesso rapporto frequenziale (sono i cosiddetti \emph{semitoni temperati}). Tale rapporto frequenziale è pari a $\sqrt[12]{2}$.
+
+\item Tutti gli altri intervalli vengono approssimati elevando a potenza il rapporto del semitono. Per esempio, la seconda maggiore, composta da due semitoni, ha rapporto pari a $(\sqrt[12]{2})^2 = \sqrt[6]{2}$; la quinta, composta da sette semitoni, ha rapporto pari a $(\sqrt[12]{2})^7$; l'ottava, coerentemente con la sua definizione data sopra, ha rapporto pari a $(\sqrt[12]{2})^{12} = 2$.
+
+\end{itemize}
+
+
+
+
+\section{Spettro di frequenza}
+
+\subsection{Teorema di Fourier e rappresentazione nel dominio del tempo}
+
+Il \emph{teorema di Fourier} ci dice che qualsiasi segnale può essere rappresentato come una somma di componenti sinusoidali, ciascuna caratterizzata dalla sua frequenza, ampiezza e fase. Questo vuol dire, in senso proprio, che sommando algebricamente tra loro sinusoidi (potenzialmente in numero infinito) con specifiche frequenze, ampiezze e fasi è possibile ottenere qualsiasi segnale, di qualsiasi complessità. Chiamiamo queste sinusoidi le \emph{componenti}, o \emph{parziali}, del segnale originale. Dire che una componente non è presente in un segnale equivale a dire che la sua ampiezza è nulla.
+
+Ci sono alcune ricadute importanti di questa affermazione. In primo luogo, il teorema di Fourier non parla della durata delle componenti: l'espressione matematica di una sinusoide assume che questa sia infinita nel tempo, dal momento che il suo dominio corrisponde all'intero insieme dei numeri reali. In secondo luogo, lo stesso teorema non dice che il segnale debba avere caratteristiche di staticità o periodicità nel tempo: qualsiasi fenomeno, in tutta la sua evoluzione temporale, può essere rappresentato in termini di somma di sinusoidi definite in termini di frequenza, ampiezza e fase. In generale, però, è possibile che questa rappresentazione richieda di considerare sinusoidi a frequenza estremamente bassa.
+
+
+\subsection{Segnali periodici, armoniche}
+
+Esiste un caso particolare del teorema di Fourier, che si applica a segnali periodici: questi possono essere rappresentati da una somma di sinusoidi le cui frequenze sono tutte multiple della frequenza fondamentale del segnale.%
+\footnote{Questo equivale a dire che le componenti a frequenze diverse dai multipli della fondamentale hanno tutte ampiezza nulla.}
+L'ampiezza e la fase di ciascuna sinusoide determinano la forma d'onda del segnale originale. Tutte queste sinusoidi sono dette \emph{armoniche} del segnale; diremo che le loro frequenze si trovano in rapporto armonico tra loro, e che il segnale nel suo complesso è armonico. È vero anche il contrario: qualsiasi somma di sinusoidi le cui frequenze siano tutte multiple di una frequenza data (cioè siano tutte in rapporto armonico tra loro) produrrà un segnale periodico, che avrà quest'ultima frequenza come fondamentale. Dunque, \emph{tutti e soli i segnali armonici sono periodici} e \emph{tutti e soli i segnali periodici sono armonici}.
+
+Tra l'altro, i rapporti interi tra le armoniche sono alla base dei rapporti frequenziali semplici corrispondenti agli intervalli. Inoltre, il fatto che l'armonicità di un fenomeno sonoro (qualità di estrema rilevanza e riconoscibilità percettiva) corrisponda a una sua strutturazione definita dai rapporti di frequenza delle sue parziali ha una relazione evidente con il fatto che la nostra percezione classifica le strutture di frequenza in base ai loro rapporti.
+
+Possiamo considerare le armoniche come un caso particolare delle parziali di un segnale, e in generale non è sbagliato chiamarle comunque ``parziali'' o ``componenti'', a meno che questo non generi confusione.
+
+Convenzionalmente, a ciascuna armonica viene associato un indice che corrisponde al rapporto tra la sua frequenza e quella della fondamentale --- cioè, all'intero che, moltiplicando la frequenza della fondamentale, produce la frequenza dell'armonica. Quindi la seconda armonica avrà frequenza doppia rispetto alla fondamentale; la terza armonica frequenza tripla; e così via. Secondo questa convenzione, la prima armonica coinciderà con la fondamentale.
+
+Esiste un'altra convenzione adottata soprattutto da testi più vecchi per cui l'armonica di frequenza doppia rispetto alla fondamentale è chiamata prima armonica; quella di frequenza tripla è chiamata seconda armonica; e così via. Da questa convenzione deriva quella, di uso frequente, per cui la fondamentale viene chiamata $f_0$, anche in contesti in cui questa viene considerata la prima armonica.
+
+
+
+
+
+
+\subsection{Rappresentazione nel dominio della frequenza}
+
+La rappresentazione di un segnale in termini delle sinusoidi che lo compongono è detta \emph{nel dominio della frequenza}, e si contrappone alla rappresentazione \emph{nel dominio del tempo} che è quella per cui il segnale è rappresentato in termini delle variazioni di ampiezza nel tempo. In senso stretto, ogni segnale, qualunque sia la durata, può essere descritto in termini di una somma di infinite sinusoidi. 
+
+L'operazione attraverso la quale si ottiene la rappresentazione nel dominio della frequenza o \emph{spettro} a partire da quella del dominio del tempo è la \emph{trasformata di Fourier} (\emph{Fourier transform}, o \emph{FT}). Questo termine indica anche il risultato dell'operazione, per cui possiamo dire che la rappresentazione nel dominio della frequenza è la trasformata di Fourier della rappresentazione nel dominio del tempo. 
+
+La trasformata di Fourier è un'operazione invertibile: dalla rappresentazione nel dominio della frequenza possiamo ottenere quella nel dominio del tempo applicando alla prima la \emph{trasformata inversa di Fourier}. In senso proprio, la trasformata di Fourier si svolge su una rappresentazione analitica del segnale: cioè, è un'operazione che prende un'equazione che descrive il segnale come una funzione del tempo $s(t)$ su dominio infinito e restituisce un'altra equazione che descrive il segnale come una funzione della frequenza $F(f)$ su dominio infinito. Il codominio di questa funzione $F(f)$ è l'insieme dei numeri complessi $\mathbb{C}$. Questo vuol dire che il valore della funzione $F(f)$, corrispondente alla trasformata di Fourier del segnale originale $s(t)$, per una data frequenza $f$ è un numero complesso; questo rappresenta in maniera compatta l'ampiezza e la fase della sinusoide a frequenza $f$ che, sommata a tutte le altre sinusoidi con ampiezze e fasi ottenute per tutte le altre possibili frequenze, produrrà un segnale identico a quello originale. L'ampiezza di cui stiamo parlando qui è, di fatto, il termine di ampiezza dell'equazione sinusoidale presentata sopra, che abbiamo chiamato $k$; possiamo quindi considerarlo come l'ampiezza di picco non segnata della corrispondente sinusoide.
+
+Definiamo formalmente lo spettro come la distribuzione delle ampiezze e delle fasi delle componenti sinusoidali rispetto alla frequenza. In generale, la distribuzione a cui siamo più interessati è quella delle ampiezze, dal momento che la nostra percezione non distingue la fase delle componenti, se non in casi molto particolari. Questa distribuzione può essere rappresentata graficamente come un diagramma cartesiano con le frequenze sull'asse orizzontale e le ampiezze sull'asse verticale. Una singola sinusoide avrà allora una rappresentazione grafica costituita da un solo punto. La somma di due sinusoidi sarà rappresentata da una coppia di punti. Segnali puramente armonici saranno rappresentati come un insieme di punti a posizioni equidistanti sull'asse delle ascisse. Discuteremo più avanti alcune altre categorie fondamentali di configurazioni spettrali, e le relazioni tra le loro rappresentazioni nel dominio della frequenza e del tempo.
+
+
+ 
+\subsection{Considerazioni percettive, STFT}
+
+La nostra percezione del suono è basata su una rappresentazione ibrida: da una parte abbiamo la capacità di distinguere timbri diversi indicando le loro caratteristiche spettrali (più scuro, più brillante, più nasale; o anche, per chi è allenato a distinguere e nominare questi dettagli, più ricco di armoniche pari, o dispari, o di alcune armoniche specifiche). Siamo anche in grado di distinguere frequenze e timbri diversi prodotti simultaneamente da corpi diversi (più note suonate simultaneamente da un pianoforte o una chitarra, più voci che parlano o cantano simultaneamente, la compresenza di suoni di origine differente). Alla base di questo tipo di percezione c'è una rappresentazione cognitiva del suono nel dominio della frequenza: il nostro orecchio interno contiene cellule acustiche sensibili a frequenze diverse, e queste cellule compiono un'operazione concettualmente simile a una trasformata di Fourier, salvo il fatto che l'ambito frequenziale a cui esse sono sensibili è limitato a una banda passante compresa approssimativamente (e ottimisticamente) tra i 20 Hz e i 20 kHz.
+
+D'altra parte, la nostra percezione del suono avviene anche in termini di eventi che si susseguono nel tempo --- fonemi, note, articolazioni interne del suono. Questo avviene in particolare per eventi la cui frequenza di produzione è più bassa di 20 Hz. Da questo punto di vista, possiamo dire che nessun fenomeno sonoro che percepiamo è statico: in generale, attribuiremo un inizio e una fine a ciascun fenomeno sonoro; inoltre, le sue qualità ci appariranno come variabili nel tempo: una corda pizzicata, ad esempio, produce un suono che inizia forte e brillante e si estingue lentamente diventando progressivamente più flebile e scuro.%
+\footnote{``Brillante'' e ``scuro'' sono sinestesie che fanno riferimento rispettivamente alla maggiore o minore ampiezza delle componenti spettrali acute di un suono.}
+Se è vero che la trasformata di Fourier, nella sua formulazione originale e più astratta, tratta il segnale codificando in termini frequenziali il suo comportamento lungo qualsiasi scala temporale, è anche vero che la nostra percezione funziona in maniera molto diversa e, per avere una rappresentazione utile del fenomeno sonoro, è necessario tenerne conto.
+
+Intuitivamente, la dimensione temporale del suono ci appare perfettamente contrapposta rispetto a quella frequenziale e indipendente da essa (potremmo dire \emph{ortogonale}). Una partitura tradizionale ci offre una rappresentazione simbolica di questo paradigma di cognizione del suono: sull'asse orizzontale il tempo, su quello verticale la frequenza --- o, nel caso di più suoni simultanei, le frequenze. Non deve però mai sfuggirci il fatto fondamentale per cui queste due dimensioni percettivamente contrapposte, il tempo e la frequenza, sono in realtà due maniere diverse di percepire fenomeni appartenenti alla stessa categoria, cioè variazioni della pressione dell'aria nel tempo.
+
+Possiamo allora dire che la nostra percezione avviene secondo una rappresentazione frequenziale \emph{a breve termine}: nel breve periodo, cioè per frequenze relativamente alte, si comporta come una rappresentazione nel dominio della frequenza; nel lungo periodo, cioè per frequenze relativamente basse, si comporta come una rappresentazione nel dominio del tempo.
+
+Esiste una variante della trasformata di Fourier, chiamata \emph{trasformata a breve termine di Fourier} (\emph{short-term Fourier transform} o \emph{STFT}), che restituisce una scomposizione sinusoidale di un segnale limitato nel tempo (e, di conseguenza, anche nella frequenza). Non entriamo ora nei suoi dettagli: possiamo dire che, anche se dal punto di vista matematico il suo risultato è \emph{esatto}, questo in generale non coincide però esattamente con la nostra percezione cognitiva del suono, che avviene secondo meccanismi molto più complessi della STFT. Tuttavia, spesso ne fornisce un'approssimazione utile alla descrizione del fenomeno sonoro, e di fatto i vari analizzatori spettrali che utilizziamo sono basati il più delle volte su questo strumento matematico.%
+\footnote{In informatica musicale si parla spesso di \emph{fast Fourier transform}, o \emph{FFT}, che è un algoritmo per il calcolo della STFT. Un altro termine che si incontra spesso è \emph{discrete Fourier transform}, o \emph{DFT}, che fa riferimento esplicito al fatto che il calcolo viene svolto su una sequenza di campioni rilevati a intervalli temporali successivi. In senso proprio, la STFT è una DFT applicata a una porzione temporale breve (o ``finestra'') di un segnale.}
+Anche la STFT restituisce numeri complessi, che rappresentano i termini di ampiezza non segnata e di fase delle sinusoidi che dobbiamo sommare per ottenere la porzione analizzata del segnale originale. 
+
+La STFT ha alcune limitazioni intrinseche. In primo luogo, il risultato che fornisce non è continuo, ma è costituito da ``finestre'' che discretizzano sia l'asse temporale che quello frequenziale; a una maggiore risoluzione temporale corrisponderà necessariamente una peggiore risoluzione frequenziale, e viceversa. Inoltre, l'asse frequenziale è diviso in maniera lineare: ciascuna finestra frequenziale potrebbe avere, per esempio, una larghezza di 100 Hz. Poiché però la nostra percezione dell'altezza non è lineare ma approssimativamente logaritmica rispetto alla frequenza, questo vuol dire che i 100 Hz nella regione grave copriranno uno spazio percettivamente molto più ampio degli stessi 100 Hz nella regione acuta. Di conseguenza, dal punto di vista percettivo la STFT tende a dare risultati decisamente poco accurati rispetto alle regioni spettrali gravi, e inutilmente dettagliati rispetto a regioni spettrali estremamente acute. Esistono trasformate di tipo diverso, chiamate in generale \emph{constant Q transform}, che organizzano lo spazio delle frequenze in maniera più prossima alla nostra percezione. Dal punto di vista matematico si tratta però di meccanismi molto più complessi, che vengono adottati decisamente più di rado rispetto alla STFT. 
+
+Si può dire, in maniera intuitiva anche se formalmente non precisa, che lo spettro frequenziale restituito dalla STFT non è virtualmente mai esatto rispetto al segnale analizzato. Tuttavia, la STFT è perfettamente invertibile: le inesattezze che essa introduce vengono poi ``metabolizzate'' quando viene calcolata la trasformata inversa a breve termine, e contribuiscono alla ricostruzione del segnale originale. Inoltre, nonostante la sua apparente imprecisione, l'analisi del fenomeno sonoro restituita dalla STFT è abbastanza buona e prossima alla percezione da essere praticamente utile in una grande varietà di casi. La grande maggioranza degli analizzatori di spettro che incontriamo nei vari programmi audio che usiamo sono basati sulla STFT, e in generale funzionano piuttosto bene. Se tutto questo sembra complicato non preoccuparti: lo è, e ci torneremo nelle prossime annualità del corso, quando esploreremo come la STFT e la sua inversa possono essere usate per operare trasformazioni interessanti del suono.
+
+
+\subsection{Rappresentazioni grafiche e spettrogrammi}
+
+Lo spettro di frequenze di un segnale può essere rappresentato graficamente. Incontriamo generalmente due tipi fondamentali di rappresentazioni grafiche. La prima è la rappresentazione dello spettro istantaneo, che è un grafico bidimensionale con la frequenza sull'asse orizzontale e l'ampiezza, generalmente non segnata, sull'asse verticale;%
+\footnote{In certi casi è utile rappresentare l'ampiezza come un valore segnato: il segno negativo, in questo caso, rappresenta un'inversione di fase di una componente rispetto a quelle con segno positivo.}
+questa rappresentazione descrive lo spettro di un segnale in maniera indipendente dal tempo, assumendo quindi che questo possa estendersi indefinitamente nel futuro e nel passato; o anche lo spettro di un segnale considerato nel breve termine di una data finestra temporale, come per esempio lo spettro prodotto da una corda di chitarra un secondo dopo che è stata pizzicata.
+
+La seconda rappresentazione è lo spettrogramma, che è un grafico tridimensionale che rappresenta una successione temporale di spettri a breve termine. Lo spettrogramma può essere molto utile per ``leggere'' il comportamento del suono nel tempo e, in generale, è una rappresentazione molto più eloquente e leggibile del grafico della forma d'onda, perché più prossima alla nostra percezione. Lo spettrogramma rappresenta il tempo sull'asse orizzontale, la frequenza sull'asse verticale e l'ampiezza (sempre non negativa) sull'asse della profondità, che spesso è rappresentato tramite una scala di grigi o di colori. Il calcolo dello spettrogramma, che è spesso basato sulla STFT, non fornisce un risultato continuo, ma suddivide sia l'asse del tempo che quello della frequenza in ``finestre'' discrete: maggiore è la risoluzione sull'asse temporale e minore sarà quella sull'asse frequenziale, e viceversa. 
+
+I grafici del segnale nel dominio della frequenza possono mostrare la frequenza e l'ampiezza in maniera lineare o logaritmica (il tempo degli spettrogrammi invece è generalmente mostrato in maniera lineare).
+
+Se la frequenza è rappresentata in maniera lineare, una stessa differenza frequenziale corrisponderà a una stessa distanza nel grafico: per esempio, una differenza di 1000 Hz potrebbe corrispondere a 1 cm sull'asse orizzontale. Lo stesso vale per l'ampiezza e le grandezze a essa linearmente correlate: per esempio, una differenza di 0.1 in ampiezza normalizzata, o una differenza di 0.5 V, potrebbero corrispondere a 1 cm sull'asse verticale. 
+
+Se invece la frequenza è rappresentata in maniera logaritmica, uguali rapporti di frequenza corrisponderanno a uguali distanze nel grafico: per esempio, un rapporto frequenziale di 2:1, ovvero un intervallo d'ottava, potrebbe corrispondere a 1 cm nel grafico; questo vuol dire che una rappresentazione frequenziale logaritmica è lineare nello spazio delle altezze, per cui intervalli uguali corrisponderanno a distanze grafiche uguali. Uno spettrogramma con rappresentazione logaritmica delle frequenze è un oggetto piuttosto simile a una partitura. Se l'ampiezza è rappresentata su una scala logaritmica, questo equivale a dire che le differenze in decibel sono mostrate linearmente: per esempio, un rapporto di ampiezze di 2:1, ovvero una differenza di circa 6 dB, potrebbe corrispondere a 1 cm. 
+
+
+
+
+
+\section{Categorie di spettri}
+
+Possiamo suddividere gli spettri in alcune categorie differenti. 
+
+
+\subsection{Spettri armonici}
+
+Come già detto, un segnale periodico nel dominio del tempo produce uno spettro armonico. Questo vuol dire che le frequenze di tutte le sue componenti sono multiple della frequenza fondamentale, corrispondente all'inverso del periodo del segnale.
+
+In una rappresentazione grafica nel dominio della frequenza rappresentata linearmente, tutte le sue componenti sono equidistanti sull'asse delle ascisse, e la stessa distanza c'è tra la fondamentale e l'asse delle ordinate.
+
+Il caso più semplice di spettro armonico è quello della sinusoide, che ha una sola componente di ampiezza non nulla, alla frequenza fondamentale.
+
+È utile conoscere le conformazioni spettrali di alcuni altri segnali periodici:
+
+\begin{itemize}
+
+\item L'onda a dente di sega è composta da una somma di sinusoidi armoniche con termine di fase nullo. L'ampiezza di ciascuna armonica è inversamente proporzionale al suo ordine: se la fondamentale (armonica 1) ha ampiezza 1, allora la seconda armonica (di frequenza doppia) ha ampiezza $\frac{1}{2}$, la terza armonica (di frequenza tripla rispetto alla fondamentale) ha ampiezza $\frac{1}{3}$ e così via. In termini percettivi, questo produce un suono molto brillante: la decima armonica ha ampiezza $\frac{1}{10}$, corrispondente a -20 dB, rispetto alla fondamentale; la centesima armonica ha ampiezza $\frac{1}{100}$, corrispondente a -40 dB, il che vuol dire che nelle giuste condizioni può essere ancora chiaramente percepibile.
+
+\item L'onda quadra è composta da una somma di sinusoidi armoniche con termine di fase nullo. L'ampiezza di ciascuna armonica di ordine dispari è inversamente proporzionale al suo ordine; le armoniche di ordine pari hanno ampiezza nulla. Quindi, se la fondamentale (armonica 1) ha ampiezza 1, allora la terza armonica (di frequenza tripla) ha ampiezza $\frac{1}{3}$, la quinta armonica (di frequenza quintupla rispetto alla fondamentale) ha ampiezza $\frac{1}{5}$ e così via. Le armoniche di ordine 2, 4, 6 eccetera non sono presenti.
+
+\item Nell'onda triangolare, l'ampiezza di ciascuna armonica di ordine dispari è inversamente proporzionale al quadrato del suo ordine; le armoniche di ordine pari hanno ampiezza nulla. Quindi, se la fondamentale (armonica 1) ha ampiezza 1, allora la terza armonica (di frequenza tripla) ha ampiezza $\frac{1}{9}$, la quinta armonica (di frequenza quintupla rispetto alla fondamentale) ha ampiezza $\frac{1}{25}$ e così via. Le armoniche di ordine 2, 4, 6 eccetera non sono presenti. Le armoniche di ordine dispari hanno termini di fase alternati: se la fondamentale ha fase nulla, allora la terza armonica ha fase $\pi$ (cioè fase opposta rispetto alla fondamentale), la quinta ha fase nulla, la settima fase $\pi$ e così via.
+
+\item Il treno d'impulsi è composto da una somma di armoniche tutte alla stessa ampiezza, con termine di fase nullo. Questo produce un segnale che percettivamente è estremamente, innaturalmente brillante, dal momento che in linea generale gli spettri che troviamo nel mondo fisico tendono ad avere ampiezze digradanti al crescere della frequenza. Si può fare una considerazione interessante sul treno d'impulsi: se allontaniamo gli impulsi tra loro nel tempo, stiamo aumentando il loro periodo, quindi abbassando la frequenza fondamentale, quindi ``avvicinando'' tra loro le armoniche. Più gli impulsi sono radi, più lo spettro è ``fitto'' di armoniche di pari ampiezza. Se gli impulsi diventano infinitamente radi --- cioè, se la frequenza diventa infinitesima, cioè se si considera un singolo impulso --- allora lo spettro sarà costituito da armoniche infinitamente vicine. Questo caso particolare è il cosiddetto \emph{delta di Dirac}, una funzione costituita da un singolo impulso non nullo di durata infinitesima, che contiene tutte le frequenze dello spettro, in un dominio infinito, in eguale quantità. Quando battiamo le mani per saggiare la risposta acustica di una stanza, o pizzichiamo una corda con un plettro, stiamo approssimando il comportamento di un delta di Dirac: idealmente, immettiamo nel sistema (che sia la stanza o la corda) ogni possibile frequenza attraverso un impulso estremamente breve, in maniera che il sistema risuoni nella maniera più ricca possibile producendo quella che viene chiamata la sua \emph{risposta d'impulso}.
+
+\end{itemize}
+
+Segnali con la stessa distribuzione spettrale di ampiezze ma fasi diverse rispetto a quelle indicate sopra avranno, in generale, lo stesso ``suono'' ma forme d'onda diverse. Questa considerazione non vale solo per i tipi di segnali che abbiamo descritto, ma per qualsiasi altro segnale.
+
+Osserviamo infine che sinusoide, onda quadra e onda triangolare condividono la caratteristica di essere \emph{antisimmetriche}: la parte negativa del segnale, come rappresentato nel dominio del tempo, è speculare rispetto alla sua parte positiva. Rispetto al periodo della fondamentale, le sue armoniche dispari sono antisimmetriche, quelle pari no: per questa ragione i segnali antisimmetrici contengono solo armoniche di ordine dispari (questo è vero anche per la sinusoide, la cui unica componente è di ordine 1) e sono quindi detti essi stessi \emph{dispari}.
+
+
+
+\subsection{Spettri inarmonici a componenti discrete}
+
+Esiste una categoria di spettri che non consideriamo armonici, e che sono costituiti da componenti sinusoidali individuali organizzate in maniera non regolare. Da un punto di vista puramente teorico bisogna fare una distinzione di una certa sottigliezza: se le frequenze delle componenti hanno rapporti razionali tra loro, in senso proprio il segnale sarà sempre periodico, con un periodo pari al minimo comune multiplo dei periodi delle componenti (e quindi con una frequenza pari al massimo comun divisore delle frequenze delle componenti). Per esempio, se un segnale è composto da una componente a 100 Hz, una a 212 Hz e una a 213.5 Hz ci sarà comunque una periodicità di 0.5 Hz. Solo rapporti di frequenza irrazionali (per esempio, tra $100 \sqrt{2}$ Hz e $200 \pi$ Hz) non definiscono un massimo comun divisore e quindi produrranno un segnale puramente inarmonico.
+
+La nostra percezione di armonicità (e con essa la capacità di individuare percettivamente una frequenza fondamentale) tende però ad attenuarsi e a svanire in almeno due circostanze: quando la frequenza fondamentale scende al di sotto dei 20 o 30 Hz e quando il segnale non contiene armoniche di ordine basso. Nel primo esempio entrambe le condizioni sono vere: la fondamentale sarebbe estremamente grave, ampiamente al di fuori della nostra banda di percezione frequenziale, e le tre componenti ne costituirebbero rispettivamente la 200esima, 424esima e 427esima armonica. Nella pratica, quindi, quando una di queste due circostanze si avvera consideriamo inarmonico lo spettro del segnale. È facile riconoscere questo tipo di spettri guardando un loro grafico nel dominio della frequenza: se l'occhio non distingue l'equidistanza delle componenti, possiamo assumere che la qualità sonora dello spettro sarà di tipo inarmonico.
+
+Esistono alcuni oggetti (come le campane e le piastre di metallo), oltre ad alcune specifiche tecniche di sintesi e trattamento sonora (come la modulazione ad anello, il \emph{frequency shifting}, la sintesi per modulazione di frequenza) che tendono a produrre spettri ascrivibili a questa tipologia.
+
+
+
+
+\subsection{Spettri rumorosi (a componenti continue)}
+
+Non tutti gli spettri sono scomponibili in singole componenti sinusoidali a frequenze precisamente individuate: è infatti possibile che l'ampiezza sia non nulla per componenti a frequenze infinitamente vicine. Un caso che abbiamo già incontrato è il delta di Dirac. Questo equivale a dire che esistono regioni dello spazio delle frequenze in cui l'energia è distribuita in maniera continua. In termini di rappresentazione nel dominio del tempo, questo corrisponde a segnali caotici, il cui comportamento può essere descritto esclusivamente in maniera statistica. In termini di percezione sonora, questo produce suoni inarmonici che classifichiamo intuitivamente come ``rumorosi'': molte consonanti, gli strumenti a percussione ad altezza indeterminata come i piatti, il vento tra le foglie, una cascata.
+
+Se in un suono a componenti continue emergono alcune bande di frequenza relativamente strette con ampiezze relativamente alte, possiamo attribuirgli un'intonazione: un esempio classico è il suono del flauto, soprattutto quando prodotto con molta ``aria''. In senso proprio, dovremmo dire che nessun suono del mondo reale ha componenti precisamente sinusoidali: a un'analisi abbastanza accurata, ciascuna delle cosiddette sinusoidi si rivelerebbe come una componente continua a banda molto stretta.
+
+Tra i segnali a componenti continue, ricordiamo almeno:
+
+\begin{itemize}
+
+\item Il \emph{rumore bianco}, il cui spettro contiene energia a tutte le frequenze, e la stessa quantità di energia per banda di frequenza: per esempio, la quantità di energia nella banda tra 100 e 200 Hz è uguale a quella nella banda tra 1100 e 1200 Hz. Questo rende il rumore bianco estremamente brillante e aspro. Nel dominio del tempo, il rumore bianco è modellizzabile come un segnale completamente casuale nel dominio del tempo.
+
+\item Il \emph{rumore rosa}, il cui spettro contiene energia a tutte le frequenze, e la stessa quantità di energia per ottava (o, più generalmente, per intervallo nello spazio delle altezze): per esempio, la quantità di energia nella banda tra 100 e 200 Hz è uguale a quella nella banda tra 1000 e 2000 Hz. 
+
+\end{itemize}
+
+
+
+\subsection{Altre considerazioni}
+
+Per finire, aggiungiamo alcune considerazioni finali sul rapporto tra il segnale visto nel dominio del tempo e il suo spettro.
+
+
+\subsection{DC offset}
+
+Fin qui abbiamo sempre assunto che il segnale considerato nel dominio del tempo sia sempre esattamente centrato rispetto all'asse dello 0 (che può essere considerato la pressione d'ambiente, l'assenza di voltaggio, la posizione di riposo della singola particella d'aria o della membrana del timpano e del microfono). È possibile però che il segnale che consideriamo sia invece traslato rispetto allo 0: questo può accadere come risultato di un particolare tipo di azione meccanica (per esempio, l'arco del violino tende a ``tirare'' la corda in una sola direzione, e quindi produrrà un segnale decentrato), o di specifiche tecniche di sintesi e trattamento (come, ancora una volta, la sintesi per modulazione di frequenza), o per problemi elettrici nella catena elettroacustica (come l'immissione nel percorso del segnale di una componente di corrente continua, da cui il nome di \emph{DC offset} che viene dato alla traslazione verticale della forma d'onda rispetto alla sua posizione normale). Questo tipo di traslazione può essere visto come la somma di un valore costante al segnale; ma un valore costante può essere ottenuto da una funzione sinusoidale con frequenza nulla e termine di fase e ampiezza non nulla: $k \cdot \sin(2\pi \cdot 0t + \phi ) = k \cdot \sin \phi $ per qualsiasi $t$. Ha quindi senso considerare nella descrizione spettrale di un segnale anche una componente di frequenza 0 e fase di $\frac{\pi}{2}$, la cui ampiezza $k$ corrisponderà alla traslazione sull'asse verticale della forma d'onda, dal momento che $\sin \frac{\pi}{2} = 1$.
+
+
+\subsection{Altre relazioni tra rappresentazione temporale e frequenziale}
+
+Esistono poi alcune caratteristiche della rappresentazione nel dominio del tempo che possono fornire indizi interessanti sullo spettro del segnale: naturalmente, la periodicità o aperiodicità può, almeno in casi semplici, essere stimata guardando la forma d'onda. Abbiamo inoltre già parlato della relazione tra assenza di armoniche pari e antisimmetricità. Un'altra osservazione utile è che la presenza di armoniche acute produce, in generale, una forma d'onda più ``spigolosa'' --- e che, al converso, ``spigoli'' nel segnale produrranno spettri ricchi di armoniche acute, fino al caso limite di una discontinuità, un  ``salto verticale'', nella forma d'onda, che teoricamente produce un delta di Dirac contenente ogni possibile frequenza a pari intensità (il famigerato ``click'').
+
+
+\subsection{Analisi della scena uditiva}
+
+In tutto questo, non abbiamo accennato, se non di sfuggita, al caso comunissimo in cui più corpi emettano vibrazioni acustiche simultaneamente, nella stessa scena uditiva --- che siano le corde di un pianoforte o corpi senza nessun tipo di relazione materiale o causale. Da un punto di vista puramente astratto, matematico, potremmo dire che non c'è nulla da aggiungere: due note diverse suonate simultaneamente produrranno un segnale sonoro dato dalla somma algebrica delle loro forme d'onda nel tempo, e tutte le considerazioni fatte fin qui restano immutate. Quindi, tipicamente, le strutture spettrali armoniche di ciascuna delle due note si sommeranno, tipicamente producendo uno spettro che all'occhio apparirà come uno spettro inarmonico a componenti discrete.
+
+L'esperienza però ci dice che la percezione che abbiamo di questo fenomeno è profondamente diversa: siamo perfettamente in grado di capire che ci sono più sorgenti sonore in gioco, ciascuna delle quali caratterizzata da uno spettro armonico; un ascoltatore allenato è capace di individuarne con sicurezza le relazioni di frequenza (``una terza maggiore''), ascriverle a specifiche categorie timbriche (``un violino e un flauto'') e, se ha la fortuna di avere l'orecchio assoluto, discernere la fondamentale prodotta da ciascuna delle due (``un mi e un sol diesis in chiave di violino''). 
+
+Ancora più evidente è la nostra capacità di selezionare, in una scena piena di suoni che consideriamo di disturbo, una  sorgente sonora che ci interessa: dal momento che non viviamo in ambienti perfettamente silenziosi, è ciò che facciamo ogni volta che parliamo con qualcuno. Addirittura, c'è un fenomeno psicoacustico chiamato ``effetto cocktail party'' che mostra come siamo capaci di selezionare e condurre una conversazione che ci interessa in una stanza piena di altre conversazioni che potenzialmente si svolgono con un tono di voce più alto, come spesso accade in una festa. Il cervello umano è un riduttore di rumore straordinario.
+
+Queste capacità riposano su meccanismi cognitivi estremamente complessi e dei quali abbiamo una comprensione molto limitata: questi meccanismi ci permettono di individuare e separare porzioni di spettro in base alle loro caratteristiche, in maniera raffinatissima, e sono fondamentali nel funzionamento cognitivo dell'udito e nella nostra capacità di utilizzare l'informazione acustica. Qui si aprirebbe il discorso estremamente ampio dell'\emph{analisi della scena uditiva}, trattato in maniera approfondita nel testo classico di Albert S. Bregman intitolato appunto \emph{Auditory Scene Analysis}.
+
+
+
+
+
+%
+%\section{Rappresentazione nel dominio della frequenza}
+%
+%\subsection{Risuonatori} 
+%
+%Un risuonatore è un corpo che risponde in maniera diversa a fenomeni vibratori a frequenze diverse, restando inerte in risposta ad alcune frequenze e mettendosi a sua volta in vibrazione in risposta ad altre. Un risuonatore può essere più o meno selettivo, cioè può reagire in maniera più o meno esclusiva a frequenze precisamente individuate. Risuonatori sono una corda di chitarra, un flauto, una stanza, una cassa armonica. Risuonatori sono anche certe cellule nel nostro orecchio, le cellule acustiche contenute nell'organo di Corti, che si mettono in vibrazione quando un suono a frequenze specifiche le colpisce, inviando impulsi elettrici al cervello.%
+%\footnote{Dal punto di vista fisiologico e meccanico questa è una grossa semplificazione; dal punto di vista funzionale, rispetto all'operazione di analisi del segnale acustico che l'organo di Corti compie, mi pare che non tradisca la sostanza della cosa.}
+%
+%Supponiamo che, in una data scena sonora, due emittenti stiano vibrando a due frequenze diverse. Se misuriamo l'andamento della pressione sonora prodotta, vedremo che questo evolverà nel tempo secondo la somma algebrica dei comportamenti vibratori di ciascuno dei due emittenti. Un'analisi superficiale di tale andamento combinato difficilmente potrà permettere di ricostruire l'andamento individuale, in termini di frequenza e ampiezza, di ciascuno dei due.
+%
+%D'altra parte, risuonatori accordati rispettivamente a ciascuna delle due frequenze vibratorie dei due emittenti verranno eccitati in maniera proporzionale all'intensità di ciascuna delle due vibrazioni; risuonatori accordati ad altre frequenze non verranno eccitati affatto, o lo saranno in maniera soltanto marginale. Questo principio, che si applica anche alle cellule del nostro orecchio, ci permette di individuare con precisione quali frequenze sono presenti in una data scena sonora: solo le cellule accordate alle frequenze effettivamente presenti nella scena sonora si metteranno in vibrazione e invieranno di conseguenza impulsi al cervello.
+%
+%
+%\subsection{Teorema e trasformata di Fourier}
+%
+%Esiste uno strumento matematico che modellizza questo comportamento in maniera molto interessante, e un teorema fondamentale che ne enuncia un fondamento teorico che incontreremo continuamente: si tratta rispettivamente della \emph{trasformata di Fourier} e del \emph{teorema di Fourier}. Entrambi richiedono una matematica più avanzata di quella che useremo qui, e per questa ragione li tratteremo in maniera decisamente romanzata, ma potete trovare una loro enunciazione molto bella e accessibile qui: \url{https://jackschaedler.github.io/circles-sines-signals/index.html}
+%
+%Il teorema di Fourier dice che ogni funzione del tempo, che esibisca o no periodicità, può essere rappresentata come una somma di funzioni sinusoidali con frequenze, ampiezze e fasi differenti. Una conseguenza di questo teorema è che ogni fenomeno oscillatorio che sia regolare nel tempo, e che quindi esibisca una regolarità a un dato periodo $\Delta t$ ovvero a una frequenza $f$ che chiameremo \emph{fondamentale}, può essere scomposto in una \emph{serie} di sinusoidi con ampiezze e fasi differenti, e con frequenze tutte multiple intere della fondamentale $f$.
+%
+%Esiste un'operazione matematica che permette di passare da un segnale descritto come funzione del tempo a una sua rappresentazione in termini di somma di sinusoidi: la \emph{trasformata di Fourier} (\emph{Fourier transform}, abbreviata in \emph{FT}).
+%
+%La trasformata di Fourier è invertibile: partendo dalle informazioni di frequenza, ampiezza e fase di ciascuna sinusoide e sommandole insieme, possiamo ottenere un segnale esattamente identico al segnale originale. Questa scomposizione è svolta analiticamente: partendo da un segnale espresso come un'equazione che lo descrive rispetto a un dominio temporale infinito otteniamo un'altra equazione che lo descrive in termini di una somma infinita di sinusoidi.%, che sarà un integrale nel caso di un segnale non periodico e una sommatoria se il segnale è periodico.
+%
+%Diciamo allora che la FT prende un segnale rappresentato nel \emph{dominio del tempo} (cioè in termini del suo andamento considerato dal punto di vista temporale: vibrazioni, oscillazioni, variazioni di pressione nell'aria o di tensione nel cavo elettrico) e restituisce una sua rappresentazione nel \emph{dominio della frequenza} (cioè in termini del suo andamento considerato dal punto di vista frequenziale: per ciascuna possibile frequenza reale, l'ampiezza e la fase a cui questa è presente nel segnale).
+%
+%L'informazione frequenziale è evidentemente contenuta nella rappresentazione nel dominio del tempo, tanto è vero che può esserne estratta: ma non è contenuta in maniera esplicita. In casi semplici, è possibile cercare in maniera empirica regolarità in porzioni sempre più ampie del segnale per provare a individuarne componenti di frequenze sempre più gravi; un occhio allenato può cogliere alcune informazioni sul contenuto frequenziale di un segnale non elementare; ma in molti casi si tratta di un'informazione che, ancorché presente, è ben nascosta nella complessità di comportamento del segnale.
+%
+%Se un segnale viene sottoposto alla trasformata di Fourier, otteniamo una rappresentazione nel dominio frequenziale a cui si possono applicare, in maniera speculare, molte delle considerazioni fatte per il dominio del tempo. In particolare, una rappresentazione frequenziale pura non contiene informazioni esplicite sul comportamento del segnale nel tempo. Questo vuol dire che tutto ciò che noi individuiamo e descriviamo come movimento e variazione del suono nel tempo (successioni di note, di timbri, evoluzioni, ritmi) viene codificato come informazione temporale. Semplificando all'estremo, la trasformata di Fourier di un ritmo a 120 BPM, corrispondente a una periodicità di 0.5 secondi, mostrerà con evidenza una componente alla corrispondente frequenza di 2 Hz; fenomeni temporali che non presentano caratteristiche evidenti di ripetitività si rifletteranno in fenomeni frequenziali complessi e irregolari, difficili se non impossibili da interpretare a occhio. 
+%
+%La specularità delle due rappresentazioni, temporale e frequenziale, è completa e sorprendente, e produce a volte risultati decisamente controintuitivi. Possiamo a buon diritto considerare la trasformata di Fourier una scatola magica che scambia tra loro le nozioni di tempo e frequenza in qualsiasi frase noi scriviamo o diciamo. L'invertibilità della trasformata di Fourier, che tra l'altro si realizza applicando nuovamente la stessa operazione con un cambio di segno, può essere considerata collegata a questa stessa idea. E un'altra maniera di considerare la trasformata di Fourier è come un sistema di infiniti risuonatori infinitamente selettivi, ciascuno dei quali viene eccitato da una frequenza che può anche essere estremamente bassa, corrispondente a un periodo di un secondo, un minuto, un mese, un anno, un secolo.
+%
+%
+%\subsection{Trasformata a breve termine e trasformata discreta di Fourier}
+%
+%Abbiamo detto che la nostra percezione del suono non avviene in termini di variazioni micro-temporali, ma in termini di altezza e timbro che sono fenomeni che hanno a che fare, almeno in qualche misura, con la frequenza. Tuttavia, sarebbe inesatto e incompleto dire che la nostra percezione avviene nel dominio della frequenza: le nozioni temporali sono ampiamente presenti nella nostra percezione. Ciò che avviene normalmente è che tendiamo a interpretare i fenomeni di breve periodicità in termini frequenziali e quelli di lunga periodicità in termini temporali. 
+%
+%
+%
+%D'altra parte, abbiamo detto che la 
+%
+%
+%L'informazione frequenziale non è, in senso proprio, contenuta nella rappresentazione nel dominio del tempo: il modo banale per rilevarla è considerare porzioni del segnale ampie nel tempo 
+%
+%
+%
+%
+%
+%
+%Quando consideriamo fenomeni acustici che misuriamo nel mondo sensibile, non ne conosciamo un'equazione che li descriva in maniera esatta --- né, in generale, in maniera ragionevole anche se inesatta. Per fare ciò utilizziamo una variante della trasformata di Fourier che ci permettono di lavorare con un segnale che misuriamo su una porzione finita di tempo: si tratta della \emph{trasformata discreta di Fourier} (\emph{discrete Fourier transform}, abbreviata in \emph{DFT}). Anche la DFT, che è a sua volta un caso particolare della \emph{trasformata a breve termine di Fourier} (\emph{short-term Fourier transform} o \emph{STFT}) è invertibile, e ci permette tra l'altro di avere una rappresentazione del fenomeno sonoro contingente più prossima alla nostra percezione.
+%
+%
+%
+%
+%
+%
+%
+%Se, in una data scena acustica, due emittenti vibrano simultaneamente a due frequenze diverse, e abbiamo due risuonatori accordati rispettivamente alle due frequenze, entrambi verranno eccitati, in maniera proporzionale all'intensità di ciascuno dei due emittenti. 
+%
+%
+%Supponiamo che, in una data scena sonora, siano presenti due emittenti che vibrano a frequenze diverse. 
+%
+%
+%
+%Come abbiamo detto, il suono è in qualche modo definito da rapide oscillazioni di un corpo che producono variazioni di pressione nell'aria che lo circonda. Queste rapide oscillazioni possono susseguirsi in maniera più o meno regolare nel tempo; la nostra percezione, probabilmente per ottime ragioni evolutive che hanno a che fare con distinguere un leone da una zanzara, tende a focalizzarsi sui fenomeni più regolari. 
+%
+%
+%
+
+
+
+
+
