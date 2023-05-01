@@ -1,4 +1,4 @@
-\documentclass[11pt]{report}
+\documentclass{memoir}
 
 \usepackage[italian]{babel}
 \usepackage{siunitx}
@@ -6,14 +6,117 @@
 \usepackage{amssymb}
 \usepackage{url}
 
+\usepackage{listings}
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{verbatim}
+\usepackage[answerdelayed]{exercise}
+\usepackage{csquotes}
+\usepackage{tabularx}
+\usepackage{rotating}
+\usepackage{enumerate}
+
+
+\usepackage{mathabx}
+\usepackage{fancybox}
+
+
+%EITHER THIS
+\usepackage{color,graphicx}
+\definecolor{ared}{rgb}{.647,.129,.149}
+\renewcommand\colorchapnum{\color{ared}}
+\renewcommand\colorchaptitle{\color{ared}}
+%\chapterstyle{pedersen}
+%\chapterstyle{bianchi}
+\chapterstyle{ger}
+
+\graphicspath{{./img/}}
+
+\lstset{ 
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+}
+
+\lstdefinestyle{mystyle}{
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\usepackage[space=true]{accsupp}
+% requires the latest version of package accsupp
+\newcommand{\copyablespace}{
+    \BeginAccSupp{method=hex,unicode,ActualText=00A0}
+\ %
+    \EndAccSupp{}
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\code}[1] {\texttt{\small #1}} % inline code
+\newcommand{\val} {\code} % values
+\newcommand{\obj} {\emph} % Max objects
+
+\newcommand{\bach}     {\obj{bach}\xspace}
+\newcommand{\cage}     {\obj{cage}\xspace}
+\newcommand{\bachroll}     {\obj{bach.roll}\xspace}
+\newcommand{\bachscore}     {\obj{bach.score}\xspace}
+\newcommand{\bacheval}     {\obj{bach.eval}\xspace}
+\newcommand{\llll}     {\obj{llll}\xspace}
+\newcommand{\lllls}     {\obj{llll}s\xspace}
+\newcommand{\bell}     {\obj{bell}\xspace}
+\newcommand{\expr}     {\obj{expr}\xspace}
+\newcommand{\vexpr}     {\obj{expr}\xspace}
+\newcommand{\bachexpr}     {\obj{bach.expr}\xspace}
+\newcommand{\ifobj}     {\obj{if}\xspace}
+\newcommand{\js}     {\obj{js}\xspace}
+\newcommand*{\cent}[1] {\framebox{\texttt{\scriptsize{#1}}}~}
+
+\title{Some stuff you should know about computers}
+\author{Andrea Agostini}
+
+
+\newlength\drop
+\makeatletter
+\newcommand*\titleM{\begingroup% Misericords, T&H p 153
+\setlength\drop{0.08\textheight}
+\centering
+\vspace*{\drop}
+{\Huge\bfseries Campionamento e Sintesi 1}\\[\baselineskip]
+%{\scshape Or how I Learned to Stop Worrying and Love the Code}\\[\baselineskip]
+\vfill
+{\large\scshape Andrea Agostini}\par
+\vfill
+{\scshape \@date}\par
+\vspace*{2\drop}
+\endgroup}
+\makeatother
+
+
+
 \begin{document}
 
-\title{Campionamento e Sintesi 1}
+\frontmatter
 
+\begin{titlingpage}
+\titleM
+\end{titlingpage}
 
-\author{Andrea Agostini}
-\date{\today}
-\maketitle
+\tableofcontents
+
+\mainmatter
 
 \include{chapters/01-pressioneAmpiezzaIntensita}
 
