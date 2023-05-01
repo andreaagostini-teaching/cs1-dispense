@@ -65,32 +65,60 @@ Intuitivamente, osservare quanto il tracciato del grafico si distanzia dall'asse
 
 \subsection{Ampiezza istantanea}
 
-L'\emph{ampiezza istantanea} è l'ampiezza misurata a un istante specifico del fenomeno sonoro. Di per sé, non ci dà un'informazione affidabile sul livello dinamico percepito, perché qualsiasi fenomeno sonoro è costituito dalla rapida alternanza di pressioni relativamente alte (cioè pressioni che, in una direzione o nell'altra, deviano in maniera importante dalla pressione atmosferica media) e pressioni relativamente basse (cioè pressioni prossime alla pressione atmosferica media). L'ampiezza istantanea è un valore \emph{segnato}: convenzionalmente, è positiva se rappresenta una pressione nella direzione nella direzione dall'emittente al recettore; negativa se rappresenta una pressione nella direzione dal recettore al ricevente. Naturalmente, può avere senso considerare il valore assoluto dell'ampiezza istantanea.
+L'\emph{ampiezza istantanea} è l'ampiezza misurata a un istante specifico del fenomeno sonoro. È un valore reale%
+\footnote{I numeri reali, appartenenti all'insieme $\mathbb{R}$, sono tutti i numeri rappresentabili su una retta. Per chi non ha mai incontrato i numeri complessi, appartenenti all'insieme $\mathbb{C}$ e rappresentabili su un piano, l'insieme $\mathbb{R}$ è, intuitivamente, l'insieme di \emph{tutti i numeri}. Purtroppo o per fortuna, la matematica moderna è un po' più complicata di così. Dovremo accennare altre volte a $\mathbb{C}$, perché i numeri complessi sono molto utili per rappresentare certi aspetti dei segnali audio.}
+\emph{segnato}%
+\footnote{Cioè, potenzialmente negativo.}
+: convenzionalmente, è positiva se rappresenta una pressione nella direzione nella direzione dall'emittente al recettore; negativa se rappresenta una pressione nella direzione dal recettore al ricevente (cioè, dal punto di vista del ricevente, una depressione). 
+
+Le ragioni per la scelta dell'istante a cui compiere la misurazione possono essere varie, ma in generale l'ampiezza istantanea viene misurata ripetutamente, a intervalli di tempo regolari, nelle operazioni di campionamento del segnale: se le misure sono abbastanza frequenti, la successione delle ampiezze istantanee può costituire una buona approssimazione numerica dell'andamento del segnale. Di fatto, virtualmente tutte le tecniche di campionamento digitale del segnale audio sono basate su questo principio. 
+
+Di per sé, l'ampiezza istantanea non ci dà un'informazione affidabile sul livello dinamico percepito, perché qualsiasi fenomeno sonoro è costituito dalla rapida alternanza di pressioni relativamente alte (cioè pressioni che, in una direzione o nell'altra, deviano in maniera importante dalla pressione atmosferica media) e pressioni relativamente basse (cioè pressioni prossime alla pressione atmosferica media). 
+
 
 \subsection{Ampiezza di picco}
 
-L'\emph{ampiezza di picco} è l'ampiezza di valore assoluto massimo entro un dato intervallo di tempo. Se l'intervallo è ragionevolmente ampio, può costituire una prima stima del livello dinamico percepito. L'ampiezza di picco è, in linea di principio, un valore segnato, per le stesse ragioni per cui lo è l'ampiezza istantanea. Nella pratica, spesso non è interessante sapere in quale direzione è stata esercitata la massima ampiezza rinvenuta: per questa ragione, viene normalmente considerato il valore assoluto dell'ampiezza di picco.
+L'\emph{ampiezza di picco} è riferita non a un istante ma a un intervallo di tempo, ed è l'ampiezza di valore assoluto massimo entro tale intervallo. Se l'intervallo è ragionevolmente ampio, può costituire una prima stima del livello dinamico percepito. L'ampiezza di picco è, in linea di principio, un valore segnato, per le stesse ragioni per cui lo è l'ampiezza istantanea. 
+
+Un caso tipico in cui è importante conoscere l'ampiezza di picco è la regolazione del guadagno in un sistema di registrazione: si producono segnali forti e si regola il livello di premplificazione in maniera che l'ampiezza di picco ricevuta dal registratore (o, in un sistema digitale, dal convertitore) non ecceda il livello massimo che questo può trattare. In questo caso, come in molti altri, non è interessante sapere in quale direzione è stata rilevata la massima ampiezza: per questa ragione, viene normalmente considerato il valore assoluto dell'ampiezza di picco. 
+
+L'ampiezza di picco può essere raggiunta più volte nell'intervallo di tempo considerato, anche con segni diversi: per esempio, una sinusoide correttamente simmetrica rispetto allo 0 raggiunge la sua ampiezza di picco due volte per ogni ciclo, una volta dal lato positivo e una dal lato negativo.
+
+
 
 \subsection{Ampiezza picco-picco}
 
-L'\emph{ampiezza picco-picco} è la differenza tra la massima e la minima ampiezza entro un dato intervallo di tempo. Nel caso di una forma d'onda perfettamente centrata sullo 0 coincide con il doppio dell'ampiezza di picco. Se però la forma d'onda non è centrata sullo 0, o se la posizione dello 0 non è nota con esattezza (per esempio perché esiste una componente di tensione continua),%
+L'\emph{ampiezza picco-picco} è il valore assoluto della differenza tra la massima e la minima ampiezza entro un dato intervallo di tempo. In questo caso, ``massima'' e ``minima'' vanno intese in senso numerico, considerando il segno, e non in valore assoluto: cioè, le ampiezze negative saranno tutte considerate più piccole delle ampiezze positive (e quindi, per esempio, un'ampiezza di -0.5 è considerata più piccola di un'ampiezza di 1; e un'ampiezza di 0.1 è considerata più grande di una di -0.5). 
+
+Intuitivamente, l'ampiezza picco-picco calcola la distanza tra i valori estremi di ampiezza istantanea che il segnale tocca entro l'intervallo temporale. Nel caso di una forma d'onda perfettamente centrata sullo 0, essa coincide con il doppio del valore assoluto dell'ampiezza di picco. Per esempio, il segnale nell'intervallo considerato potrebbe avere ampiezza massima a 0.7 e minima a -0.7: entrambi i valori possono essere considerati ampiezza di picco, visto che il loro valore assoluto 0.7 è identico. In questo caso, l'ampiezza picco-picco, cioè il valore assoluto della differenza tra massimo e minimo è $0.7 - (-0.7) = 0.7 + 0.7 = 1.4$. 
+
+Se però la forma d'onda non è centrata sullo 0, o se la posizione dello 0 non è nota con esattezza (per esempio perché esiste una componente di tensione continua),%
 \footnote{Una componente di tensione continua provoca una traslazione sull'asse verticale della rappresentazione nel dominio del tempo.}
-l'ampiezza picco-picco fornisce l'unica possibile misura affidabile. L'ampiezza picco-picco, secondo la definizione data sopra, non è mai negativa. 
+l'ampiezza picco-picco fornisce l'unica possibile misura affidabile. Ad esempio, se il segnale descritto sopra si trovasse traslato di -0.5 sull'asse verticale, il suo massimo sarebbe $0.7 - 0.5 = 0.2$ e il minimo $-0.7 - 0.5 = -1.2$. Questo però non modificherebbe l'ampiezza picco-picco, che sarebbe $0.2 - (-1.2) = 1.4$. L'ampiezza picco-picco, secondo la definizione data sopra, non è mai negativa. 
+
+
+
 
 \subsection{Ampiezza RMS}
 
-L'\emph{ampiezza RMS} (da \emph{root-mean-square}: vedremo tra poco perché) è una misura che tiene conto dell'andamento dell'ampiezza nel tempo. Di conseguenza, può rappresentare in maniera più accurata il livello dinamico percepito, che a parità di ampiezza di picco (o picco-picco) sarà maggiore se, su scale di durata di frazioni di secondo, il segnale rimane forte più a lungo. La definizione di ampiezza RMS per un segnale campionato in ampiezza a intervalli di tempo regolari, come i segnali digitali che trattiamo abitualmente, è
+L'\emph{ampiezza RMS} (da \emph{root-mean-square}: vedremo tra poco perché) è una misura presa rispetto a un intervallo di tempo, e tiene conto dell'andamento dell'ampiezza nell'intervallo. Di conseguenza, può rappresentare in maniera più accurata il livello dinamico percepito, che a parità di ampiezza di picco (o picco-picco) sarà maggiore se, su scale di durata di frazioni di secondo, il segnale rimane forte più a lungo. 
+
+La definizione di ampiezza RMS per un segnale campionato in ampiezza a intervalli di tempo regolari, come i segnali digitali che trattiamo abitualmente, è
 \begin{equation}\label{eq:rms}
 A_{\text{RMS}} = \sqrt{\frac{A_1^2+A_2^2+\ldots+A_n^2}{n}}
 \end{equation}
-dove $n$ è il numero totale di campioni e $A_1$ ... $A_n$ sono i valori di ampiezza istantanea dei singoli campioni entro la finestra temporale considerata. L'ampiezza RMS è quindi la radice quadrata della media dei quadrati delle ampiezze istantanee, da cui il nome. Se consideriamo invece un segnale continuo nel tempo, la definizione di RMS deve fare ricorso al concetto di integrale:%
+dove $n$ è il numero totale di campioni e $A_1$ ... $A_n$ sono i valori di ampiezza istantanea dei singoli campioni entro la finestra temporale considerata. L'ampiezza RMS è quindi la radice quadrata della media dei quadrati delle ampiezze istantanee, da cui il nome. 
+
+Se consideriamo invece un segnale continuo nel tempo, com'è il caso per segnali 
+la definizione di RMS deve fare ricorso al concetto di integrale:%
 \footnote{Un integrale può essere visto come la somma di infiniti campioni di durata infinitesimale: ci serve quindi a calcolare il valore totalizzato da un fenomeno continuo. Se non sei familiare con questo formalismo ignora tranquillamente i dettagli di questa formula.}
 \begin{equation*}
-A_{\textrm{RMS}} = \sqrt{\frac{1}{t_2-t_1}\int_{t_1}^{t_2}(A(t))^2\textrm{d}t}
+A_{\textrm{RMS}} = \sqrt{\frac{1}{t_2-t_1}\int_{t_1}^{t_2}[A(t)]^2\textrm{d}t}
 \end{equation*}
 dove $t$ indica il tempo, $t_1$ e $t_2$ sono rispettivamente il tempo iniziale e finale considerati e $A(t)$ è l'ampiezza nel tempo.
 
-L'ampiezza RMS non può essere negativa, dal momento che non può esserlo il quadrato di un numero reale.
+L'ampiezza RMS non è mai negativa.%
+\footnote{Volendo essere pignoli dovremmo dire che ogni numero reale positivo ha due radici quadrate, una positiva e una negativa: ma per il calcolo della RMS consideriamo solo quella positiva. D'altra parte, solo numeri reali non negativi hanno una radice quadrata reale: ma la formula della RMS mette sotto radice una somma di quadrati, e il quadrato di qualsiasi numero reale è non negativo. Tutto questo per dire che la RMS è ben definita.}
 
 
 \section{Intensità sonora}
@@ -188,7 +216,7 @@ L'ampiezza, in senso proprio, non è una grandezza fisica perché non descrive u
 
 
 
-\section{Intermezzo: i logaritmi --- un ripasso}
+\section{Intermezzo: logaritmi --- un ripasso}
 
 Il prossimo concetto che introdurremo richiede uno strumento matematico che dovresti già conoscere, ma che potrebbe meritare un veloce ripasso: il \emph{logaritmo}.
 
