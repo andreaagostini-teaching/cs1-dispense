@@ -78,7 +78,7 @@ Di per sé, l'ampiezza istantanea non ci dà un'informazione affidabile sul live
 
 \subsection{Ampiezza di picco}
 
-L'\emph{ampiezza di picco} è riferita non a un istante ma a un intervallo di tempo, ed è l'ampiezza di valore assoluto massimo entro tale intervallo. Se l'intervallo è ragionevolmente ampio, può costituire una prima stima del livello dinamico percepito. L'ampiezza di picco è, in linea di principio, un valore segnato, per le stesse ragioni per cui lo è l'ampiezza istantanea. 
+L'\emph{ampiezza di picco} è riferita non a un istante ma a un intervallo di tempo, ed è l'ampiezza di valore assoluto massimo entro tale intervallo. Se l'intervallo è ragionevolmente ampio, può costituire una prima stima del livello dinamico percepito. L'ampiezza di picco è, in linea di principio, un valore segnato, per le stesse ragioni per cui lo è l'ampiezza istantanea: è, a tutti gli effetti, l'ampiezza istantanea rilevata all'istante in cui questa è massima in valore assoluto.
 
 Un caso tipico in cui è importante conoscere l'ampiezza di picco è la regolazione del guadagno in un sistema di registrazione: si producono segnali forti e si regola il livello di premplificazione in maniera che l'ampiezza di picco ricevuta dal registratore (o, in un sistema digitale, dal convertitore) non ecceda il livello massimo che questo può trattare. In questo caso, come in molti altri, non è interessante sapere in quale direzione è stata rilevata la massima ampiezza: per questa ragione, viene normalmente considerato il valore assoluto dell'ampiezza di picco. 
 
@@ -94,14 +94,14 @@ Intuitivamente, l'ampiezza picco-picco calcola la distanza tra i valori estremi 
 
 Se però la forma d'onda non è centrata sullo 0, o se la posizione dello 0 non è nota con esattezza (per esempio perché esiste una componente di tensione continua),%
 \footnote{Una componente di tensione continua provoca una traslazione sull'asse verticale della rappresentazione nel dominio del tempo.}
-l'ampiezza picco-picco fornisce l'unica possibile misura affidabile. Ad esempio, se il segnale descritto sopra si trovasse traslato di -0.5 sull'asse verticale, il suo massimo sarebbe $0.7 - 0.5 = 0.2$ e il minimo $-0.7 - 0.5 = -1.2$. Questo però non modificherebbe l'ampiezza picco-picco, che sarebbe $0.2 - (-1.2) = 1.4$. L'ampiezza picco-picco, secondo la definizione data sopra, non è mai negativa. 
+l'ampiezza picco-picco fornisce l'unica possibile misura affidabile. Ad esempio, se il segnale descritto sopra si trovasse traslato di -0.5 sull'asse verticale, il suo massimo sarebbe $0.7 - 0.5 = 0.2$ e il minimo $-0.7 - 0.5 = -1.2$. Questo però non modificherebbe l'ampiezza picco-picco, che sarebbe $0.2 - (-1.2) = 1.4$. L'ampiezza picco-picco, secondo la definizione data sopra, non è mai negativa. Inoltre, in un segnale bipolare (cioè, un segnale che attraversa la linea dello 0) è sempre maggiore dell'ampiezza di picco.
 
 
 
 
 \subsection{Ampiezza RMS}
 
-L'\emph{ampiezza RMS} (da \emph{root-mean-square}: vedremo tra poco perché) è una misura presa rispetto a un intervallo di tempo, e tiene conto dell'andamento dell'ampiezza nell'intervallo. Di conseguenza, può rappresentare in maniera più accurata il livello dinamico percepito, che a parità di ampiezza di picco (o picco-picco) sarà maggiore se, su scale di durata di frazioni di secondo, il segnale rimane forte più a lungo. 
+L'\emph{ampiezza RMS} (da \emph{root-mean-square}: vedremo tra poco perché) è una misura presa rispetto a un intervallo di tempo, e tiene conto dell'andamento dell'ampiezza nell'intervallo. Di conseguenza, può rappresentare in maniera più accurata il livello dinamico percepito, che a parità di ampiezza di picco (o picco-picco) sarà maggiore se, su scale di durata di frazioni di secondo, il segnale rimane forte più a lungo. L'ampiezza RMS non è mai maggiore dell'ampiezza di picco, e in generale --- salvo i casi di forme d'onda rettangolari e di segnali costanti --- è minore di essa.
 
 La definizione di ampiezza RMS per un segnale campionato in ampiezza a intervalli di tempo regolari, come i segnali digitali che trattiamo abitualmente, è
 \begin{equation}\label{eq:rms}

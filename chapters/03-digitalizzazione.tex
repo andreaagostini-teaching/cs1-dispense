@@ -6,3 +6,43 @@ Per poter elaborare un suono tramite strumenti informatici abbiamo prima di tutt
 Esistono molte rappresentazioni possibili e usate nella pratica, ma ce n'è una che possiamo considerare alla base di tutte le altre, e che tra l'altro è quella che viene direttamente prodotta dai convertitori da analogico a digitale (\emph{digital to analog converter} o \emph{DAC}) e accettata dai convertitori da digitale ad analogico (\emph{analog to digital converter} o \emph{ADC}). Si tratta della codifica PCM (\emph{pulse code modulation}, nome adottato più che altro per ragioni storiche, ma non molto rappresentativo dell'effettiva operazione svolta).
 
 Nel caso pratico più semplice di catena audio digitale, il segnale acustico viene in primo luogo convertito in un segnale elettroacustico tramite un microfono o un trasduttore di altro tipo; viene poi preamplificato in maniera da portarlo a un livello di tensione elettrica compatibile con quello accettato dal convertitore ADC; il convertitore produce un flusso di numeri, normalmente rappresentati sotto forma di un segnale digitale elettrico o, talvolta, ottico; questo flusso di numeri viene trasmesso a un convertitore DAC, che lo converte in un segnale elettrico teoricamente identico a quello originale; e questo segnale elettrico viene poi amplificato perché possa guidare un trasduttore come un altoparlante.
+
+
+\section{Discretizzazione sull'asse del tempo: il campionamento}
+
+La discretizzazione avviene a intervalli regolari nel tempo. Quindi si può parlare di un periodo di campionamento e di una frequenza di campionamento (spesso indicata come $f_c$ o $SR$, dall'inglese \emph{sampling rate}). Più alta è la frequenza di campionamento e migliore è la rappresentazione del segnale, con un maggiore costo in termini di memoria e computazione. Quindi la domanda è: qual è la più bassa frequenza che possiamo scegliere? La risposta dipende dalle applicazioni, ma per rispondere dobbiamo parlare del fenomeno dell'aliasing.
+
+
+\section{Aliasing}
+
+Esiste un teorema fondamentale, il teorema di Nyquist, che possiamo enunciare intuitivamente (anche se in maniera non del tutto rigorosa) così:
+
+Un segnale campionato può rappresentare correttamente solo frequenze inferiori alla metà della frequenza di campionamento.
+
+Questo è equivalente a dire che:
+
+La frequenza a cui viene campionato un segnale dev'essere più che doppia rispetto alla massima frequenza che si vuole rappresentare correttamente.
+
+La metà della frequenza di campionamento è un valore talmente importante che ha un nome a sé: \emph{Frequenza di Nyquist}, spesso indicata come $F_{Ny}$ o semplicemente $Ny$.
+
+Cosa succede se tento di campionare un segnale con componenti frequenziali superiori alla frequenza di Nyquist? Succede che queste frequenze vengono rappresentate, sì, ma come frequenze \emph{diverse} da quelle del segnale originale. In un grafico nel dominio della frequenza, si può dire che frequenze comprese tra la frequenza di Nyquist e la frequenza di campionamento vengono ``riflesse'' rispetto all'asse determinato dalla frequenza di Nyquist. Da questa osservazione nasce il nome che si dà a questo fenomeno di alterazione frequenziale --- \emph{rispecchiamento} o, più spesso, \emph{aliasing}.
+
+La formula che ci permette di calcolare la frequenza rappresentata $f_r$ rispetto a frequenza originale $f_o$ compresa tra la frequenza di Nyquist e la frequenza di campionamento è
+
+\begin{equation}
+f_{Ny} \leq f_r \leq f_c \implies f_r = f_c - f_o
+\end{equation}
+
+A frequenze più alte della frequenza di campionamento, le frequenze rappresentate si comportano in maniera modulare: 
+
+\begin{equation}
+
+
+
+
+
+
+
+
+
+
