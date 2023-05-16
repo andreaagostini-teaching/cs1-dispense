@@ -71,6 +71,14 @@ Intuitivamente, osservare quanto il tracciato del grafico si distanzia dall'asse
 
 \subsection{Ampiezza istantanea}
 
+\begin{figure}
+    \begin{center}
+       \scalebox{0.6} {\input{figures/ampiezza_istantanea.pgf}}
+    \end{center}
+    \caption{\emph{Ampiezza istantanea}, misurata ad intervalli regolari di 100 samples con frequenza di campionamento 22050Hz}
+\end{figure}
+
+
 L'\emph{ampiezza istantanea} è l'ampiezza misurata a un istante specifico del fenomeno sonoro. È un valore reale%
 \footnote{I numeri reali, appartenenti all'insieme $\mathbb{R}$, sono tutti i numeri rappresentabili su una retta. Per chi non ha mai incontrato i numeri complessi, appartenenti all'insieme $\mathbb{C}$ e rappresentabili su un piano, l'insieme $\mathbb{R}$ è, intuitivamente, l'insieme di \emph{tutti i numeri}. Purtroppo o per fortuna, la matematica moderna è un po' più complicata di così. Dovremo accennare altre volte a $\mathbb{C}$, perché i numeri complessi sono molto utili per rappresentare certi aspetti dei segnali audio.}
 \emph{segnato}%
@@ -83,6 +91,13 @@ Di per sé, l'ampiezza istantanea non ci dà un'informazione affidabile sul live
 
 
 \subsection{Ampiezza di picco}
+
+\begin{figure}
+    \begin{center}
+       \scalebox{0.6} {\input{figures/ampiezza_picco.pgf}}
+    \end{center}
+    \caption{\emph{Ampiezza di picco}, misurata ad intervalli regolari di 100 samples con frequenza di campionamento 22050Hz}
+\end{figure}
 
 L'\emph{ampiezza di picco} è riferita non a un istante ma a un intervallo di tempo, ed è l'ampiezza di valore assoluto massimo entro tale intervallo. Se l'intervallo è ragionevolmente ampio, può costituire una prima stima del livello dinamico percepito. L'ampiezza di picco è, in linea di principio, un valore segnato, per le stesse ragioni per cui lo è l'ampiezza istantanea: è, a tutti gli effetti, l'ampiezza istantanea rilevata all'istante in cui questa è massima in valore assoluto.
 
