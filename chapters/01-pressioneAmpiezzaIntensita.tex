@@ -65,7 +65,12 @@ Se si traccia l'andamento di una qualsiasi di queste grandezze rispetto al tempo
 
 \section{Misure dell'ampiezza}
 
-
+\begin{figure}
+    \begin{center}
+       \scalebox{0.6} {\input{figures/misure_ampiezza.pgf}}
+    \end{center}
+    \caption{Measures of amplitude. (1) Peak amplitude. (2) Peak-to-peak amplitude (3)RMS amplitude.}
+\end{figure}
 
 Intuitivamente, osservare quanto il tracciato del grafico si distanzia dall'asse orizzontale dà un'idea approssimativa di ``quanto forte'' è il suono, o della sua dinamica (non uso il termine ``intensità'', che ha un significato specifico definito più avanti). È utile definire alcune maniere diverse di misurare l'ampiezza di un fenomeno sonoro:
 
@@ -108,6 +113,13 @@ L'ampiezza di picco può essere raggiunta più volte nell'intervallo di tempo co
 
 
 \subsection{Ampiezza picco-picco}
+
+\begin{figure}
+    \begin{center}
+       \scalebox{0.6} {\input{figures/ampiezza_picco_picco.pgf}}
+    \end{center}
+    \caption{\emph{Ampiezza picco-picco}, misurata ad intervalli regolari di 100 samples con frequenza di campionamento 22050Hz}
+\end{figure}
 
 L'\emph{ampiezza picco-picco} è il valore assoluto della differenza tra la massima e la minima ampiezza entro un dato intervallo di tempo. In questo caso, ``massima'' e ``minima'' vanno intese in senso numerico, considerando il segno, e non in valore assoluto: cioè, le ampiezze negative saranno tutte considerate più piccole delle ampiezze positive (e quindi, per esempio, un'ampiezza di -0.5 è considerata più piccola di un'ampiezza di 1; e un'ampiezza di 0.1 è considerata più grande di una di -0.5). 
 
