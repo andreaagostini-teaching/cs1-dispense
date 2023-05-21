@@ -297,6 +297,13 @@ https://jackschaedler.github.io/circles-sines-signals/index.html} e il bellissim
 
 \subsection{Rappresentazioni grafiche e spettrogrammi}
 
+\begin{figure}
+    \begin{center}
+       \scalebox{0.6} {\input{figures/spettro_dente_di_sega.pgf}}
+    \end{center}
+    \caption{Spettro di un'onda a dente di sega}
+\end{figure}
+
 Lo spettro di frequenze di un segnale può essere rappresentato graficamente. Incontriamo generalmente due tipi fondamentali di rappresentazioni grafiche. La prima è la rappresentazione dello spettro istantaneo, che è un grafico bidimensionale con la frequenza sull'asse orizzontale e l'ampiezza, generalmente non segnata, sull'asse verticale;%
 \footnote{In certi casi è utile rappresentare l'ampiezza come un valore segnato: il segno negativo, in questo caso, rappresenta un'inversione di fase di una componente rispetto a quelle con segno positivo.}
 questa rappresentazione descrive lo spettro di un segnale in maniera indipendente dal tempo, assumendo quindi che questo possa estendersi indefinitamente nel futuro e nel passato; o anche lo spettro di un segnale considerato nel breve termine di una data finestra temporale, come per esempio lo spettro prodotto da una corda di chitarra un secondo dopo che è stata pizzicata.
@@ -304,6 +311,14 @@ questa rappresentazione descrive lo spettro di un segnale in maniera indipendent
 La seconda rappresentazione è lo spettrogramma, che è un grafico tridimensionale che rappresenta una successione temporale di spettri a breve termine. Lo spettrogramma può essere molto utile per ``leggere'' il comportamento del suono nel tempo e, in generale, è una rappresentazione molto più eloquente e leggibile del grafico della forma d'onda, perché più prossima alla nostra percezione. Lo spettrogramma rappresenta il tempo sull'asse orizzontale, la frequenza sull'asse verticale e l'ampiezza (sempre non negativa) sull'asse della profondità, che spesso è rappresentato tramite una scala di grigi o di colori. Il calcolo dello spettrogramma, che è spesso basato sulla STFT, non fornisce un risultato continuo, ma suddivide sia l'asse del tempo che quello della frequenza in ``finestre'' discrete: maggiore è la risoluzione sull'asse temporale e minore sarà quella sull'asse frequenziale, e viceversa. 
 
 I grafici del segnale nel dominio della frequenza possono mostrare la frequenza e l'ampiezza in maniera lineare o logaritmica (il tempo degli spettrogrammi invece è generalmente mostrato in maniera lineare).
+
+\begin{figure}
+    \begin{center}
+       %\scalebox{0.6} {\input{figures/spettrogramma_dente_di_sega-img0.png}}
+       \scalebox{0.6}{\includegraphics{figures/cherooke.png}}
+    \end{center}
+    \caption{Spettrogramma vocale (Cherooke dagli esempi audio di Max MSP)}
+\end{figure}
 
 Se la frequenza è rappresentata in maniera lineare, una stessa differenza frequenziale corrisponderà a una stessa distanza nel grafico: per esempio, una differenza di 1000 Hz potrebbe corrispondere a 1 cm sull'asse orizzontale. Lo stesso vale per l'ampiezza e le grandezze a essa linearmente correlate: per esempio, una differenza di 0.1 in ampiezza normalizzata, o una differenza di 0.5 V, potrebbero corrispondere a 1 cm sull'asse verticale. 
 
@@ -370,6 +385,14 @@ Osserviamo infine che sinusoide, onda quadra e onda triangolare condividono la c
 \subsection{Spettri inarmonici a componenti discrete}
 
 Esiste una categoria di spettri che non consideriamo armonici, e che sono costituiti da componenti sinusoidali individuali organizzate in maniera non regolare. Da un punto di vista puramente teorico bisogna fare una distinzione di una certa sottigliezza: se le frequenze delle componenti hanno rapporti razionali tra loro, in senso proprio il segnale sarà sempre periodico, con un periodo pari al minimo comune multiplo dei periodi delle componenti (e quindi con una frequenza pari al massimo comun divisore delle frequenze delle componenti). Per esempio, se un segnale è composto da una componente a 100 Hz, una a 212 Hz e una a 213.5 Hz ci sarà comunque una periodicità di 0.5 Hz. Solo rapporti di frequenza irrazionali (per esempio, tra $100 \sqrt{2}$ Hz e $200 \pi$ Hz) non definiscono un massimo comun divisore e quindi produrranno un segnale puramente inarmonico.
+
+\begin{figure}
+    \begin{center}
+       \scalebox{0.6} {\input{figures/onda_inarmonica.pgf}}
+    \end{center}
+    \caption{\emph{Spettro inarmonico} ottenuto sommando una componente a 100 Hz, una a 212 Hz e una a 213.5 Hz.}
+\end{figure}
+
 
 La nostra percezione di armonicità (e con essa la capacità di individuare percettivamente una frequenza fondamentale) tende però ad attenuarsi e a svanire in almeno due circostanze: quando la frequenza fondamentale scende al di sotto dei 20 o 30 Hz e quando il segnale non contiene armoniche di ordine basso. Nel primo esempio entrambe le condizioni sono vere: la fondamentale sarebbe estremamente grave, ampiamente al di fuori della nostra banda di percezione frequenziale, e le tre componenti ne costituirebbero rispettivamente la 200esima, 424esima e 427esima armonica. Nella pratica, quindi, quando una di queste due circostanze si avvera consideriamo inarmonico lo spettro del segnale. È facile riconoscere questo tipo di spettri guardando un loro grafico nel dominio della frequenza: se l'occhio non distingue l'equidistanza delle componenti, possiamo assumere che la qualità sonora dello spettro sarà di tipo inarmonico.
 
